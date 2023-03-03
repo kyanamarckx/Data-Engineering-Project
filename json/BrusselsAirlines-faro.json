@@ -1,0 +1,135 @@
+{
+   "0) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "09:20 - 11:20",
+      "Stops": 0,
+      "Airports": [
+         "Brussels Airlines"
+      ],
+      "Duration": "3h 00min",
+      "Price": "vanaf 606,14 EUR"
+   },
+   "1) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "06:00 - 12:45",
+      "Stops": 1,
+      "Airports": [
+         "Tap Air Portugal",
+         "Portug\u00e1lia"
+      ],
+      "Duration": "7h 45min",
+      "Price": "No price available"
+   },
+   "2) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 13:00",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa"
+      ],
+      "Duration": "7h 05min",
+      "Price": "vanaf 797,58 EUR"
+   },
+   "3) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "07:00 - 15:35",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa"
+      ],
+      "Duration": "9h 35min",
+      "Price": "vanaf 804,67 EUR"
+   },
+   "4) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "09:15 - 17:20",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Tap Air Portugal"
+      ],
+      "Duration": "9h 05min",
+      "Price": "No price available"
+   },
+   "5) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "09:40 - 18:20",
+      "Stops": 1,
+      "Airports": [
+         "Air Baltic",
+         "Edelweiss Air"
+      ],
+      "Duration": "9h 40min",
+      "Price": "vanaf 697,16 EUR"
+   },
+   "6) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "11:45 - 17:20",
+      "Stops": 1,
+      "Airports": [
+         "BULGARIA AIR FOR TAP PORTUGAL",
+         "Tap Air Portugal"
+      ],
+      "Duration": "6h 35min",
+      "Price": "No price available"
+   },
+   "7) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "15:55 - 23:50",
+      "Stops": 1,
+      "Airports": [
+         "Tap Air Portugal",
+         "Tap Air Portugal"
+      ],
+      "Duration": "8h 55min",
+      "Price": "No price available"
+   },
+   "8) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "17:05 - 23:50",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Tap Air Portugal"
+      ],
+      "Duration": "7h 45min",
+      "Price": "vanaf 525,25 EUR"
+   },
+   "9) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "18:05 - 23:50",
+      "Stops": 2,
+      "Airports": [
+         "Lufthansa",
+         "Lufthansa",
+         "Tap Air Portugal"
+      ],
+      "Duration": "6h 45min",
+      "Price": "vanaf 898,78 EUR"
+   },
+   "10) 01/04/2023": {
+      "Destination": "faro",
+      "Date": "01/04/2023",
+      "Time": "18:05 - 23:50",
+      "Stops": 2,
+      "Airports": [
+         "Lufthansa",
+         "Lufthansa",
+         "Tap Air Portugal"
+      ],
+      "Duration": "6h 45min",
+      "Price": "vanaf 1.083,78 EUR"
+   }
+}

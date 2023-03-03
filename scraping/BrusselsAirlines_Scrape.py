@@ -1,81 +1,141 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+import datetime
 import time
 import json
 
-# Instantiate the Chrome driver
-driver = webdriver.Chrome()
-driver.maximize_window()
+# Get the dates from april first 2023 to october first 2023
+start_date = datetime.date(2023, 4, 1)
+end_date = datetime.date(2023, 10, 1)
+delta = datetime.timedelta(days=1)
 
-driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
+dates = []
+while start_date < end_date:
+    dates.append(start_date.strftime('%d/%m/%Y'))
+    start_date += delta
 
-cookies = driver.find_element(By.ID, "cm-acceptAll").click()
 
-doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
+# Get the available destinations from Brussels
+destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
 
-oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
-oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
 
-departure = driver.execute_script("document.getElementById('departureDate').value='01/04/2023';")
+# driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
 
-search = driver.find_element(By.ID, "searchFlights").click()
 
-# WebDriverWait(driver, 25)
-driver.implicitly_wait(45)
+# Loop through the dates and destinations
+for date in dates:
+    for destination in destinations:
+        # Instantiate the Chrome driver
+        driver = webdriver.Chrome()
+        driver.maximize_window()
 
-# WebDriverWait(driver, 70)
-# time.sleep(70)
+        URL = "https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-" + destination
 
-# TODO: de datum moet er nog bij
+        driver.get(URL)
 
-times = driver.find_elements(By.CLASS_NAME, "time")
-stops = driver.find_elements(By.CLASS_NAME, "nbStops")
-airports = driver.find_elements(By.CLASS_NAME, "airlineName")
-durations = driver.find_elements(By.CLASS_NAME, "duration")
-prices = driver.find_elements(By.CLASS_NAME, "cabinE")
-prices.remove(prices[0])
+        # driver.implicitly_wait(10)
 
-flights = []
+        cookies = driver.find_element(By.ID, "cm-acceptAll").click()
 
-for i in range(len(times)):
-    flight = []
+        doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
 
-    # Get time
-    time_text = times[i].text
-    flight.append(time_text)
+        oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
+        oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
 
-    # Get stops
-    stop_text = stops[i].text
-    if stop_text.startswith("1"):
-        stop_count = 1
-        airport_text = airports[0].text + " - " + airports[1].text
-        del airports[0:2]
-    elif stop_text.startswith("2"):
-        stop_count = 2
-        airport_text = airports[0].text + " - " + airports[1].text + " - " + airports[2].text
-        del airports[0:3]
-    else:
-        stop_count = 0
-        airport_text = airports[0].text
-        del airports[0]
-    flight.append(stop_count)
-    flight.append(airport_text)
+        departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
 
-    # Get duration
-    duration_text = durations[i].text
-    flight.append(duration_text)
+        search = driver.find_element(By.ID, "searchFlights").click()
 
-    # Get price
-    price_text = prices[i].text.split("\n")[0]
-    flight.append(price_text)
+        driver.implicitly_wait(30)
 
-    flight = {"Time": time_text, "Stops": stop_count, "Airports": airport_text, "Duration": duration_text, "Price": price_text}
+        flights = {}
 
-    flights.append(flight)
+        # Check if there are flights available
+        noFlightsAvailable = driver.find_elements(By.ID, "warning-message-content-0")
+        if noFlightsAvailable:
+            key = str(date)
+            value = "No flights available for " + destination + " on " + date
+            flights.__setitem__(key, value)
 
-print(flights)
+            filename = "json/BrusselsAirlines-" + destination + ".json"
 
-# save the body to a json file
-with open("BrusselsAirlines.json", "w") as file:
-    json.dump(flights, file, indent=4)
+            with open(filename, "a") as file:
+                json.dump(flights, file, indent=3)
+            
+            driver.quit()
+            continue
+
+        # Check if there is a button to view more flights, if yes: click on it
+        try:
+            moreFlights = driver.find_element(By.CLASS_NAME, "more-flights-link-container")
+            moreFlights.click()
+        except:
+            pass
+
+        pres_avails = driver.find_elements(By.TAG_NAME, "pres-avail")
+        counter = 0
+        for pres_avail in pres_avails:
+            times = pres_avail.find_element(By.CLASS_NAME, "time")
+            stops = pres_avail.find_element(By.CLASS_NAME, "nbStops")
+            airports = pres_avail.find_elements(By.CLASS_NAME, "airlineName")
+            durations = pres_avail.find_element(By.CLASS_NAME, "duration")
+            cabins = pres_avail.find_element(By.CLASS_NAME, "cabins")
+            pres_avail_class_info = cabins.find_element(By.TAG_NAME, "pres-avail-class-info")
+
+            try:
+                # economies = pres_avail_class_info.find_element(By.CLASS_NAME, "cabinE")
+                # prices = economies.__getattribute__("label")
+                # economies.remove(economies[0])
+                # economy = economies[counter]
+                prices = pres_avail_class_info.find_element(By.CLASS_NAME, "cabinPrice")
+                # prices = economies.find_element(By.TAG_NAME, "label")
+                price = prices.text
+            except:
+                price = "No price available"
+
+
+            # Get time
+            time_text = times.text
+
+            # Get stops
+            stop_text = stops.text
+            airportsArray = []
+            if stop_text.startswith("1"):
+                stop_count = 1
+                # airport_text = airports[0].text + " - " + airports[1].text
+                airportsArray.append(airports[0].text)
+                airportsArray.append(airports[1].text)
+                # del airports[0:2]
+            elif stop_text.startswith("2"):
+                stop_count = 2
+                # airport_text = airports[0].text + " - " + airports[1].text + " - " + airports[2].text
+                airportsArray.append(airports[0].text)
+                airportsArray.append(airports[1].text)
+                airportsArray.append(airports[2].text)
+                # del airports[0:3]
+            else:
+                stop_count = 0
+                # airport_text = airports[0].text
+                airportsArray.append(airports[0].text)
+                # del airports[0]
+
+            # Get duration
+            duration_text = durations.text
+
+            # Create the flight object
+            flight = {"Destination": destination, "Date": date, "Time": time_text, "Stops": stop_count, "Airports": airportsArray, "Duration": duration_text, "Price": price}
+
+            key = str(str(counter) + ")" + " " + date)
+
+            flights.__setitem__(key, flight)
+
+            counter += 1
+
+        filename = "json/BrusselsAirlines-" + destination + ".json"
+
+        with open(filename, "a") as file:
+            json.dump(flights, file, indent=3)
+
+        driver.quit()
+

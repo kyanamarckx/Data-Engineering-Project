@@ -1,0 +1,98 @@
+{
+   "0) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 16:30",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Ew Discover"
+      ],
+      "Duration": "8h 35min",
+      "Price": "No price available"
+   },
+   "1) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "07:00 - 17:10",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa"
+      ],
+      "Duration": "9h 10min",
+      "Price": "vanaf 691,67 EUR"
+   },
+   "2) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "18:05 - 09:00",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa",
+         "Ew Discover"
+      ],
+      "Duration": "13h 55min",
+      "Price": "vanaf 567,88 EUR"
+   },
+   "3) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "18:05 - 09:00",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa",
+         "Ew Discover"
+      ],
+      "Duration": "13h 55min",
+      "Price": "vanaf 567,88 EUR"
+   },
+   "4) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "19:15 - 08:05",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Austrian Airlines"
+      ],
+      "Duration": "11h 50min",
+      "Price": "vanaf 429,38 EUR"
+   },
+   "5) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "19:15 - 09:00",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Ew Discover"
+      ],
+      "Duration": "12h 45min",
+      "Price": "vanaf 437,88 EUR"
+   },
+   "6) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "19:15 - 09:00",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Ew Discover"
+      ],
+      "Duration": "12h 45min",
+      "Price": "vanaf 437,88 EUR"
+   },
+   "7) 01/04/2023": {
+      "Destination": "rhodes",
+      "Date": "01/04/2023",
+      "Time": "20:00 - 08:05",
+      "Stops": 1,
+      "Airports": [
+         "Austrian Airlines",
+         "Austrian Airlines"
+      ],
+      "Duration": "11h 05min",
+      "Price": "vanaf 429,38 EUR"
+   }
+}

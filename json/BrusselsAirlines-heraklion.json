@@ -1,0 +1,270 @@
+{
+   "0) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "05:55 - 10:20",
+      "Stops": 0,
+      "Airports": [
+         "Brussels Airlines"
+      ],
+      "Duration": "3h 25min",
+      "Price": "vanaf 392,14 EUR"
+   },
+   "1) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "06:20 - 14:15",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Swiss International Air Lines"
+      ],
+      "Duration": "6h 55min",
+      "Price": "vanaf 527,36 EUR"
+   },
+   "2) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 12:35",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa"
+      ],
+      "Duration": "4h 40min",
+      "Price": "No price available"
+   },
+   "3) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "09:40 - 20:10",
+      "Stops": 1,
+      "Airports": [
+         "Air Baltic",
+         "SWISS INTERNATIONAL AIR LINES FOR EDELWEISS AIR"
+      ],
+      "Duration": "9h 30min",
+      "Price": "vanaf 743,16 EUR"
+   },
+   "4) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "13:15 - 22:30",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa Cityline",
+         "Aegean Airlines"
+      ],
+      "Duration": "8h 15min",
+      "Price": "vanaf 750,67 EUR"
+   },
+   "5) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "14:40 - 22:30",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa Cityline",
+         "Aegean Airlines"
+      ],
+      "Duration": "6h 50min",
+      "Price": "vanaf 750,67 EUR"
+   },
+   "6) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "18:05 - 08:50",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa",
+         "Ew Discover"
+      ],
+      "Duration": "13h 45min",
+      "Price": "vanaf 726,88 EUR"
+   },
+   "7) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "18:05 - 08:50",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa",
+         "Ew Discover"
+      ],
+      "Duration": "13h 45min",
+      "Price": "vanaf 726,88 EUR"
+   },
+   "8) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "19:15 - 08:50",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Ew Discover"
+      ],
+      "Duration": "12h 35min",
+      "Price": "vanaf 726,88 EUR"
+   },
+   "9) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "19:15 - 08:50",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Ew Discover"
+      ],
+      "Duration": "12h 35min",
+      "Price": "vanaf 726,88 EUR"
+   },
+   "10) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "20:15 - 12:30",
+      "Stops": 1,
+      "Airports": [
+         "Helvetic Airways",
+         "Edelweiss Air"
+      ],
+      "Duration": "15h 15min",
+      "Price": "vanaf 548,16 EUR"
+   },
+   "11) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 16:05",
+      "Stops": 2,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "8h 10min",
+      "Price": "vanaf 782,11 EUR"
+   },
+   "12) 01/04/2023": {
+      "Destination": "heraklion",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 16:05",
+      "Stops": 2,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "8h 10min",
+      "Price": "vanaf 782,11 EUR"
+   }
+}{
+   "0) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "07:55 - 12:20",
+      "Stops": 0,
+      "Airports": [
+         "Brussels Airlines"
+      ],
+      "Duration": "3h 25min",
+      "Price": "vanaf 236,14 EUR"
+   },
+   "1) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "06:55 - 18:20",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Ew Discover"
+      ],
+      "Duration": "10h 25min",
+      "Price": "vanaf 583,58 EUR"
+   },
+   "2) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "07:00 - 16:05",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa"
+      ],
+      "Duration": "8h 05min",
+      "Price": "vanaf 720,67 EUR"
+   },
+   "3) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "09:30 - 16:05",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "5h 35min",
+      "Price": "vanaf 590,67 EUR"
+   },
+   "4) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "16:30 - 01:00",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa Cityline",
+         "Aegean Airlines"
+      ],
+      "Duration": "7h 30min",
+      "Price": "vanaf 613,58 EUR"
+   },
+   "5) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "19:00 - 01:00",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Aegean Airlines"
+      ],
+      "Duration": "5h 00min",
+      "Price": "vanaf 613,58 EUR"
+   },
+   "6) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "06:55 - 16:05",
+      "Stops": 2,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "8h 10min",
+      "Price": "vanaf 782,11 EUR"
+   },
+   "7) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "06:55 - 16:05",
+      "Stops": 2,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "8h 10min",
+      "Price": "vanaf 782,11 EUR"
+   },
+   "8) 02/04/2023": {
+      "Destination": "heraklion",
+      "Date": "02/04/2023",
+      "Time": "09:30 - 18:20",
+      "Stops": 2,
+      "Airports": [
+         "Lufthansa",
+         "Lufthansa",
+         "Ew Discover"
+      ],
+      "Duration": "7h 50min",
+      "Price": "vanaf 782,11 EUR"
+   }
+}

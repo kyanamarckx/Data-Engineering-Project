@@ -1,0 +1,88 @@
+{
+   "0) 01/04/2023": {
+      "Destination": "palermo",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 11:05",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Ew Discover"
+      ],
+      "Duration": "4h 10min",
+      "Price": "vanaf 315,58 EUR"
+   },
+   "1) 01/04/2023": {
+      "Destination": "palermo",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 16:35",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa"
+      ],
+      "Duration": "9h 40min",
+      "Price": "vanaf 315,58 EUR"
+   },
+   "2) 01/04/2023": {
+      "Destination": "palermo",
+      "Date": "01/04/2023",
+      "Time": "08:50 - 16:35",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "7h 45min",
+      "Price": "vanaf 477,58 EUR"
+   },
+   "3) 01/04/2023": {
+      "Destination": "palermo",
+      "Date": "01/04/2023",
+      "Time": "09:40 - 13:55",
+      "Stops": 1,
+      "Airports": [
+         "Air Baltic",
+         "Swiss International Air Lines"
+      ],
+      "Duration": "4h 15min",
+      "Price": "No price available"
+   },
+   "4) 01/04/2023": {
+      "Destination": "palermo",
+      "Date": "01/04/2023",
+      "Time": "20:45 - 11:05",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa Cityline",
+         "Ew Discover"
+      ],
+      "Duration": "14h 20min",
+      "Price": "vanaf 229,67 EUR"
+   },
+   "5) 01/04/2023": {
+      "Destination": "palermo",
+      "Date": "01/04/2023",
+      "Time": "06:20 - 13:55",
+      "Stops": 2,
+      "Airports": [
+         "Brussels Airlines",
+         "Swiss International Air Lines",
+         "Swiss International Air Lines"
+      ],
+      "Duration": "7h 35min",
+      "Price": "No price available"
+   },
+   "6) 01/04/2023": {
+      "Destination": "palermo",
+      "Date": "01/04/2023",
+      "Time": "07:00 - 16:35",
+      "Stops": 2,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "9h 35min",
+      "Price": "vanaf 621,11 EUR"
+   }
+}

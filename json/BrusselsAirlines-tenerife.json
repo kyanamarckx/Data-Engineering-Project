@@ -1,0 +1,61 @@
+{
+   "0) 01/04/2023": {
+      "Destination": "tenerife",
+      "Date": "01/04/2023",
+      "Time": "13:20 - 17:00",
+      "Stops": 0,
+      "Airports": [
+         "Brussels Airlines"
+      ],
+      "Duration": "4h 40min",
+      "Price": "vanaf 470,14 EUR"
+   },
+   "1) 01/04/2023": {
+      "Destination": "tenerife",
+      "Date": "01/04/2023",
+      "Time": "06:55 - 15:45",
+      "Stops": 1,
+      "Airports": [
+         "Brussels Airlines",
+         "Lufthansa"
+      ],
+      "Duration": "9h 50min",
+      "Price": "vanaf 726,58 EUR"
+   },
+   "2) 01/04/2023": {
+      "Destination": "tenerife",
+      "Date": "01/04/2023",
+      "Time": "08:50 - 15:45",
+      "Stops": 1,
+      "Airports": [
+         "Lufthansa",
+         "Lufthansa"
+      ],
+      "Duration": "7h 55min",
+      "Price": "No price available"
+   },
+   "3) 01/04/2023": {
+      "Destination": "tenerife",
+      "Date": "01/04/2023",
+      "Time": "09:40 - 16:40",
+      "Stops": 1,
+      "Airports": [
+         "Air Baltic",
+         "Edelweiss Air"
+      ],
+      "Duration": "8h 00min",
+      "Price": "vanaf 756,16 EUR"
+   },
+   "4) 01/04/2023": {
+      "Destination": "tenerife",
+      "Date": "01/04/2023",
+      "Time": "09:40 - 23:55",
+      "Stops": 1,
+      "Airports": [
+         "Air Baltic",
+         "Edelweiss Air"
+      ],
+      "Duration": "15h 15min",
+      "Price": "vanaf 509,16 EUR"
+   }
+}
