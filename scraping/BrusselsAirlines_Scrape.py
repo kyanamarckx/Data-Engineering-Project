@@ -76,6 +76,8 @@ for date in dates:
         pres_avails = driver.find_elements(By.TAG_NAME, "pres-avail")
         counter = 0
         for pres_avail in pres_avails:
+            # TODO: Get the flightnumber + unique flightkey
+            # TODO: Get the available seats if displayed
             times = pres_avail.find_element(By.CLASS_NAME, "time")
             stops = pres_avail.find_element(By.CLASS_NAME, "nbStops")
             airports = pres_avail.find_elements(By.CLASS_NAME, "airlineName")
