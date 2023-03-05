@@ -1,3 +1,4 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,6 +9,7 @@ import json
 # Get the dates from april first 2023 to october first 2023
 start_date = datetime.date(2023, 4, 1)
 end_date = datetime.date(2023, 10, 1)
+# end_date = datetime.date(2023, 4, 4)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -18,16 +20,21 @@ while start_date < end_date:
 
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
+# destinations = ["heraklion"]
 
 
 # driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
 
+flightsJSON = {}
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
 
 # Loop through the dates and destinations
 for date in dates:
     for destination in destinations:
         # Instantiate the Chrome driver
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(options=chrome_options)
         driver.maximize_window()
 
         URL = "https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-" + destination
@@ -61,6 +68,10 @@ for date in dates:
             filename = "json/BrusselsAirlines-" + destination + ".json"
 
             with open(filename, "a") as file:
+                if os.path.getsize(filename) > 0:
+                    file.seek(0, os.SEEK_END)
+                    file.seek(file.tell() - 1, os.SEEK_SET)
+                    file.write(",")
                 json.dump(flights, file, indent=3)
             
             driver.quit()
@@ -78,6 +89,7 @@ for date in dates:
         for pres_avail in pres_avails:
             # TODO: Get the flightnumber + unique flightkey
             # TODO: Get the available seats if displayed
+            departure = "brussel"
             times = pres_avail.find_element(By.CLASS_NAME, "time")
             stops = pres_avail.find_element(By.CLASS_NAME, "nbStops")
             airports = pres_avail.find_elements(By.CLASS_NAME, "airlineName")
@@ -96,6 +108,11 @@ for date in dates:
             except:
                 price = "No price available"
 
+            try:
+                seats = pres_avail_class_info.find_element(By.CLASS_NAME, "seats")
+                seat = seats.text
+            except:
+                seat = "No information available"
 
             # Get time
             time_text = times.text
@@ -125,19 +142,35 @@ for date in dates:
             # Get duration
             duration_text = durations.text
 
-            # Create the flight object
-            flight = {"Destination": destination, "Date": date, "Time": time_text, "Stops": stop_count, "Airports": airportsArray, "Duration": duration_text, "Price": price}
+            # Create the flight object when the flight is done by Brussels Airlines itself
+            if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0 :
+                flight = {"Departure": departure, "Destination": destination, "Date": date, "Time": time_text, "Stops": stop_count, "Airports": airportsArray, "Duration": duration_text, "Price": price, "Seats": seat}
 
-            key = str(str(counter) + ")" + " " + date)
+                # key = str(str(counter) + ")" + " " + date)
 
-            flights.__setitem__(key, flight)
+                flights.__setitem__(counter, flight)
 
-            counter += 1
+                counter += 1
 
         filename = "json/BrusselsAirlines-" + destination + ".json"
+        flightsJSON.__setitem__(date, flights)
 
         with open(filename, "a") as file:
-            json.dump(flights, file, indent=3)
+            if os.path.getsize(filename) > 0:
+                file.seek(0, os.SEEK_END)
+                file.seek(file.tell() - 1, os.SEEK_SET)
+                file.write(",")
+            json.dump(flightsJSON, file, indent=3)
 
         driver.quit()
+
+flightsOVERALL = {}
+flightsOVERALL.update(flightsJSON)
+
+with open("json/BrusselsAirlines.json", "w") as file:
+    # if os.path.getsize(filename) > 0:
+    #     file.seek(0, os.SEEK_END)
+    #     file.seek(file.tell() - 1, os.SEEK_SET)
+    #     file.write(",")
+    json.dump(flightsOVERALL, file, indent=3)
 
