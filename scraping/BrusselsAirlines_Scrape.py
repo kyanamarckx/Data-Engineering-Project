@@ -5,11 +5,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 import datetime
 import time
 import json
+import csv
 
 # Get the dates from april first 2023 to october first 2023
 start_date = datetime.date(2023, 4, 1)
 end_date = datetime.date(2023, 10, 1)
-# end_date = datetime.date(2023, 4, 4)
+end_date = datetime.date(2023, 4, 4)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -20,8 +21,11 @@ while start_date < end_date:
 
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
-# destinations = ["heraklion"]
+destinations = ["rhodes"]
 
+
+# Set the header for csv file
+header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price", "Seats"]
 
 # driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
 
@@ -29,6 +33,10 @@ flightsJSON = {}
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
+
+with open("csv/BrusselsAirlines.csv", mode="w", newline="") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(header)
 
 # Loop through the dates and destinations
 for date in dates:
@@ -61,20 +69,25 @@ for date in dates:
         # Check if there are flights available
         noFlightsAvailable = driver.find_elements(By.ID, "warning-message-content-0")
         if noFlightsAvailable:
-            key = str(date)
-            value = "No flights available for " + destination + " on " + date
-            flights.__setitem__(key, value)
+            # key = str(date)
+            # value = "No flights available for " + destination + " on " + date
+            # flight = {}
+            # flights.update(key, flight)
 
-            filename = "json/BrusselsAirlines-" + destination + ".json"
+            # filename = "json/BrusselsAirlines-" + destination + ".json"
 
-            with open(filename, "a") as file:
-                if os.path.getsize(filename) > 0:
-                    file.seek(0, os.SEEK_END)
-                    file.seek(file.tell() - 1, os.SEEK_SET)
-                    file.write(",")
-                json.dump(flights, file, indent=3)
+            # with open(filename, "a") as file:
+            #     if os.path.getsize(filename) > 0:
+            #         file.seek(0, os.SEEK_END)
+            #         file.seek(file.tell() - 1, os.SEEK_SET)
+            #         file.write(",")
+            #     json.dump(flights, file, indent=3)
+
+            # with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
+            #     writer = csv.writer(csvfile)
+            #     writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
             
-            driver.quit()
+            # driver.quit()
             continue
 
         # Check if there is a button to view more flights, if yes: click on it
@@ -87,14 +100,14 @@ for date in dates:
         pres_avails = driver.find_elements(By.TAG_NAME, "pres-avail")
         counter = 0
         for pres_avail in pres_avails:
-            # TODO: Get the flightnumber + unique flightkey
-            # TODO: Get the available seats if displayed
+            # TODO: Get the unique flightkey
             departure = "brussel"
             times = pres_avail.find_element(By.CLASS_NAME, "time")
             stops = pres_avail.find_element(By.CLASS_NAME, "nbStops")
             airports = pres_avail.find_elements(By.CLASS_NAME, "airlineName")
             durations = pres_avail.find_element(By.CLASS_NAME, "duration")
             cabins = pres_avail.find_element(By.CLASS_NAME, "cabins")
+            flightnumbers = pres_avail.find_element(By.CLASS_NAME, "flightNumber")
             pres_avail_class_info = cabins.find_element(By.TAG_NAME, "pres-avail-class-info")
 
             try:
@@ -104,7 +117,8 @@ for date in dates:
                 # economy = economies[counter]
                 prices = pres_avail_class_info.find_element(By.CLASS_NAME, "cabinPrice")
                 # prices = economies.find_element(By.TAG_NAME, "label")
-                price = prices.text
+                prices = prices.text.split(" ")
+                price = float(prices[1].format().replace(",", "."))
             except:
                 price = "No price available"
 
@@ -116,6 +130,8 @@ for date in dates:
 
             # Get time
             time_text = times.text
+            departureTime = time_text.split(" - ")[0]
+            arrivalTime = time_text.split(" - ")[1]
 
             # Get stops
             stop_text = stops.text
@@ -142,17 +158,25 @@ for date in dates:
             # Get duration
             duration_text = durations.text
 
+            # Get flight number
+            flightnumber_text = flightnumbers.text
+
             # Create the flight object when the flight is done by Brussels Airlines itself
-            if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0 :
-                flight = {"Departure": departure, "Destination": destination, "Date": date, "Time": time_text, "Stops": stop_count, "Airports": airportsArray, "Duration": duration_text, "Price": price, "Seats": seat}
+            if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0 and price != "No price available" :
+                flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumber_text, "Airports": airportsArray, "Duration": duration_text, "Price": price, "Seats": seat}
 
                 # key = str(str(counter) + ")" + " " + date)
 
                 flights.__setitem__(counter, flight)
 
+                with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
+
                 counter += 1
 
         filename = "json/BrusselsAirlines-" + destination + ".json"
+        key = destination + " " + date
         flightsJSON.__setitem__(date, flights)
 
         with open(filename, "a") as file:
@@ -167,10 +191,10 @@ for date in dates:
 flightsOVERALL = {}
 flightsOVERALL.update(flightsJSON)
 
-with open("json/BrusselsAirlines.json", "w") as file:
+with open("json/BrusselsAirlines.json", "w") as jsonfile:
     # if os.path.getsize(filename) > 0:
     #     file.seek(0, os.SEEK_END)
     #     file.seek(file.tell() - 1, os.SEEK_SET)
     #     file.write(",")
-    json.dump(flightsOVERALL, file, indent=3)
+    json.dump(flightsJSON, jsonfile, indent=3)
 

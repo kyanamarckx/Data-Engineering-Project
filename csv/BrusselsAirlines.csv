@@ -1,0 +1,5 @@
+Departure,Destination,Date,Departure time,Arrival time,Stops,Flightnumber,Airports,Duration,Price,Seats
+brussel,rhodes,01/04/2023,07:00,17:10,1,LH5587,"['Brussels Airlines', 'Lufthansa']",9h 10min,691.67,No information available
+brussel,rhodes,01/04/2023,19:15,08:05,1,OS8176,"['Brussels Airlines', 'Austrian Airlines']",11h 50min,429.38,No information available
+brussel,rhodes,01/04/2023,19:15,09:00,1,LH5589,"['Brussels Airlines', 'Ew Discover']",12h 45min,502.88,No information available
+brussel,rhodes,01/04/2023,19:15,09:00,1,LH5589,"['Brussels Airlines', 'Ew Discover']",12h 45min,502.88,No information available
