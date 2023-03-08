@@ -6,11 +6,13 @@ import datetime
 import time
 import json
 import csv
+import pandas as pd
+import glob
 
 # Get the dates from april first 2023 to october first 2023
 start_date = datetime.date(2023, 4, 1)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 4, 4)
+end_date = datetime.date(2023, 4, 3)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -21,7 +23,7 @@ while start_date < end_date:
 
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
-destinations = ["rhodes"]
+destinations = ["heraklion","rhodes"]
 
 
 # Set the header for csv file
@@ -33,6 +35,7 @@ flightsJSON = {}
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
+# chrome_options.add_argument("--headless")
 
 with open("csv/BrusselsAirlines.csv", mode="w", newline="") as csvfile:
     writer = csv.writer(csvfile)
@@ -87,7 +90,7 @@ for date in dates:
             #     writer = csv.writer(csvfile)
             #     writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
             
-            # driver.quit()
+            driver.quit()
             continue
 
         # Check if there is a button to view more flights, if yes: click on it
@@ -107,7 +110,7 @@ for date in dates:
             airports = pres_avail.find_elements(By.CLASS_NAME, "airlineName")
             durations = pres_avail.find_element(By.CLASS_NAME, "duration")
             cabins = pres_avail.find_element(By.CLASS_NAME, "cabins")
-            flightnumbers = pres_avail.find_element(By.CLASS_NAME, "flightNumber")
+            flightnumbers = pres_avail.find_elements(By.CLASS_NAME, "flightNumber")
             pres_avail_class_info = cabins.find_element(By.TAG_NAME, "pres-avail-class-info")
 
             try:
@@ -149,6 +152,12 @@ for date in dates:
                 airportsArray.append(airports[1].text)
                 airportsArray.append(airports[2].text)
                 # del airports[0:3]
+            elif stop_text.startswith("3"):
+                stop_count = 3
+                airportsArray.append(airports[0].text)
+                airportsArray.append(airports[1].text)
+                airportsArray.append(airports[2].text)
+                airportsArray.append(airports[3].text)
             else:
                 stop_count = 0
                 # airport_text = airports[0].text
@@ -159,19 +168,25 @@ for date in dates:
             duration_text = durations.text
 
             # Get flight number
-            flightnumber_text = flightnumbers.text
+            flightnumberArray = []
+            for flightnumber in flightnumbers:
+                flightnumber_text = flightnumber.text
+                flightnumberArray.append(flightnumber_text)
 
             # Create the flight object when the flight is done by Brussels Airlines itself
             if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0 and price != "No price available" :
-                flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumber_text, "Airports": airportsArray, "Duration": duration_text, "Price": price, "Seats": seat}
+                flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumberArray, "Airports": airportsArray, "Duration": duration_text, "Price": price, "Seats": seat}
 
                 # key = str(str(counter) + ")" + " " + date)
 
                 flights.__setitem__(counter, flight)
 
-                with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
+                filename = "csv/BrusselsAirlines-" + destination + ".csv"
+                filename = "csv/BrusselsAirlines.csv"
+
+                with open(filename, mode="a", newline="") as csvfile:
                     writer = csv.writer(csvfile)
-                    writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
+                    writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumberArray, airportsArray, duration_text, price, seat])
 
                 counter += 1
 
@@ -197,4 +212,27 @@ with open("json/BrusselsAirlines.json", "w") as jsonfile:
     #     file.seek(file.tell() - 1, os.SEEK_SET)
     #     file.write(",")
     json.dump(flightsJSON, jsonfile, indent=3)
+
+
+# csv_files = glob.glob('*.{}'.format('csv'))
+# df_csv_append = pd.DataFrame()
+
+# for file in csv_files:
+#     df = pd.read_csv(file)
+#     df_csv_append = df_csv_append.append(df, ignore_index=True)
+
+# df_csv_append.drop_duplicates(subset=None, inplace=True)
+# df_csv_append.to_csv('csv/BrusselsAirlines.csv', index=False)
+
+
+
+df = pd.read_csv("csv/BrusselsAirlines.csv")
+df.drop_duplicates(subset=None, inplace=True)
+df.to_csv("csv/BrusselsAirlines.csv", index=False)
+
+description = open("BrusselsAirlines.md", "w")
+description.write(df.describe().to_markdown())
+df.info()
+description.close()
+
 

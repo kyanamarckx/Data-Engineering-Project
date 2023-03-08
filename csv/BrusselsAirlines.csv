@@ -1,5 +1,17 @@
 Departure,Destination,Date,Departure time,Arrival time,Stops,Flightnumber,Airports,Duration,Price,Seats
-brussel,rhodes,01/04/2023,07:00,17:10,1,LH5587,"['Brussels Airlines', 'Lufthansa']",9h 10min,691.67,No information available
-brussel,rhodes,01/04/2023,19:15,08:05,1,OS8176,"['Brussels Airlines', 'Austrian Airlines']",11h 50min,429.38,No information available
-brussel,rhodes,01/04/2023,19:15,09:00,1,LH5589,"['Brussels Airlines', 'Ew Discover']",12h 45min,502.88,No information available
-brussel,rhodes,01/04/2023,19:15,09:00,1,LH5589,"['Brussels Airlines', 'Ew Discover']",12h 45min,502.88,No information available
+brussel,heraklion,01/04/2023,05:55,10:20,0,['SN3255'],['Brussels Airlines'],3h 25min,392.14,No information available
+brussel,heraklion,01/04/2023,06:20,14:15,1,"['LX4551', 'LX2350']","['Brussels Airlines', 'Swiss International Air Lines']",6h 55min,722.47,No information available
+brussel,heraklion,01/04/2023,19:15,08:50,1,"['LH5589', 'LH4420']","['Brussels Airlines', 'Ew Discover']",12h 35min,531.88,1 stoel(en) over aan deze prijs
+brussel,heraklion,01/04/2023,19:15,08:50,1,"['LH5589', '4Y1204']","['Brussels Airlines', 'Ew Discover']",12h 35min,531.88,1 stoel(en) over aan deze prijs
+brussel,heraklion,01/04/2023,06:55,16:05,2,"['LH5629', 'LH099', 'LH1296']","['Brussels Airlines', 'Lufthansa', 'Lufthansa']",8h 10min,782.11,8 stoel(en) over aan deze prijs
+brussel,heraklion,01/04/2023,06:55,16:05,2,"['LH5629', 'LH101', 'LH1296']","['Brussels Airlines', 'Lufthansa', 'Lufthansa']",8h 10min,782.11,No information available
+brussel,rhodes,01/04/2023,07:00,17:10,1,"['LH5587', 'LH1258']","['Brussels Airlines', 'Lufthansa']",9h 10min,691.67,No information available
+brussel,rhodes,01/04/2023,19:15,08:05,1,"['OS8176', 'OS9173']","['Brussels Airlines', 'Austrian Airlines']",11h 50min,429.38,No information available
+brussel,rhodes,01/04/2023,19:15,09:00,1,"['LH5589', 'LH4416']","['Brussels Airlines', 'Ew Discover']",12h 45min,697.88,No information available
+brussel,rhodes,01/04/2023,19:15,09:00,1,"['LH5589', '4Y1200']","['Brussels Airlines', 'Ew Discover']",12h 45min,697.88,No information available
+brussel,heraklion,02/04/2023,07:55,12:20,0,['SN3255'],['Brussels Airlines'],3h 25min,288.14,4 stoel(en) over aan deze prijs
+brussel,heraklion,02/04/2023,06:55,18:20,1,"['LH5629', 'LH1758']","['Brussels Airlines', 'Ew Discover']",10h 25min,713.58,No information available
+brussel,heraklion,02/04/2023,07:00,16:05,1,"['LH5587', 'LH1296']","['Brussels Airlines', 'Lufthansa']",8h 05min,720.67,No information available
+brussel,heraklion,02/04/2023,19:00,01:00,1,"['LH5631', 'LH5922']","['Brussels Airlines', 'Aegean Airlines']",5h 00min,613.58,1 stoel(en) over aan deze prijs
+brussel,heraklion,02/04/2023,06:55,16:05,2,"['LH5629', 'LH101', 'LH1296']","['Brussels Airlines', 'Lufthansa', 'Lufthansa']",8h 10min,782.11,No information available
+brussel,heraklion,02/04/2023,06:55,16:05,2,"['LH5629', 'LH099', 'LH1296']","['Brussels Airlines', 'Lufthansa', 'Lufthansa']",8h 10min,782.11,No information available
