@@ -77,4 +77,83 @@
          "Seats": "No information available"
       }
    }
+},{
+   "01/04/2023": {
+      "0": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "07:00",
+         "Arrival time": "17:10",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5587",
+            "LH1258"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa"
+         ],
+         "Duration": "9h 10min",
+         "Price": 691.67,
+         "Seats": "No information available"
+      },
+      "1": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "08:05",
+         "Stops": 1,
+         "FlightNumber": [
+            "OS8176",
+            "OS9173"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Austrian Airlines"
+         ],
+         "Duration": "11h 50min",
+         "Price": 429.38,
+         "Seats": "No information available"
+      },
+      "2": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "09:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "LH4416"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 45min",
+         "Price": 567.88,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      },
+      "3": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "09:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "4Y1200"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 45min",
+         "Price": 567.88,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      }
+   }
 }

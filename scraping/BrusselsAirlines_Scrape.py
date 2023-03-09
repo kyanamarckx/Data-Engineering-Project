@@ -12,7 +12,7 @@ import glob
 # Get the dates from april first 2023 to october first 2023
 start_date = datetime.date(2023, 4, 1)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 4, 3)
+end_date = datetime.date(2023, 4, 4)
 delta = datetime.timedelta(days=1)
 
 dates = []

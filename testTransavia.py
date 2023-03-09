@@ -1,5 +1,4 @@
 import os
-from click import Command
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -113,7 +112,7 @@ for date in dates:
         departureTitle.find_element(By.XPATH, "..")
         departureTitle.click()
 
-        specificDate = driver.find_element(By.ID, "data-type-data").__setattr__("checked")
+        # specificDate = driver.find_element(By.ID, "data-type-data").__setattr__("checked")
         # specificDate.find_element(By.XPATH, "..").click()
 
         selectList = driver.find_element(By.ID, "data-flight-type")

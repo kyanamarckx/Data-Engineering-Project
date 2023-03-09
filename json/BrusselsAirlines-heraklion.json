@@ -314,4 +314,518 @@
          "Seats": "No information available"
       }
    }
+},{
+   "01/04/2023": {
+      "0": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "01/04/2023",
+         "Departure time": "05:55",
+         "Arrival time": "10:20",
+         "Stops": 0,
+         "FlightNumber": [
+            "SN3255"
+         ],
+         "Airports": [
+            "Brussels Airlines"
+         ],
+         "Duration": "3h 25min",
+         "Price": 392.14,
+         "Seats": "No information available"
+      },
+      "1": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "01/04/2023",
+         "Departure time": "06:20",
+         "Arrival time": "14:15",
+         "Stops": 1,
+         "FlightNumber": [
+            "LX4551",
+            "LX2350"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Swiss International Air Lines"
+         ],
+         "Duration": "6h 55min",
+         "Price": 722.49,
+         "Seats": "No information available"
+      },
+      "2": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "08:50",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "LH4420"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 35min",
+         "Price": 531.88,
+         "Seats": "3 stoel(en) over aan deze prijs"
+      },
+      "3": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "08:50",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "4Y1204"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 35min",
+         "Price": 531.88,
+         "Seats": "3 stoel(en) over aan deze prijs"
+      },
+      "4": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "01/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "16:05",
+         "Stops": 2,
+         "FlightNumber": [
+            "LH5629",
+            "LH101",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa",
+            "Lufthansa"
+         ],
+         "Duration": "8h 10min",
+         "Price": 782.11,
+         "Seats": "No information available"
+      },
+      "5": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "01/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "16:05",
+         "Stops": 2,
+         "FlightNumber": [
+            "LH5629",
+            "LH099",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa",
+            "Lufthansa"
+         ],
+         "Duration": "8h 10min",
+         "Price": 782.11,
+         "Seats": "No information available"
+      }
+   }
+},{
+   "01/04/2023": {
+      "0": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "07:00",
+         "Arrival time": "17:10",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5587",
+            "LH1258"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa"
+         ],
+         "Duration": "9h 10min",
+         "Price": 691.67,
+         "Seats": "No information available"
+      },
+      "1": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "08:05",
+         "Stops": 1,
+         "FlightNumber": [
+            "OS8176",
+            "OS9173"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Austrian Airlines"
+         ],
+         "Duration": "11h 50min",
+         "Price": 429.38,
+         "Seats": "No information available"
+      },
+      "2": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "09:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "LH4416"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 45min",
+         "Price": 567.88,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      },
+      "3": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "09:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "4Y1200"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 45min",
+         "Price": 567.88,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      }
+   },
+   "02/04/2023": {
+      "0": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "07:55",
+         "Arrival time": "12:20",
+         "Stops": 0,
+         "FlightNumber": [
+            "SN3255"
+         ],
+         "Airports": [
+            "Brussels Airlines"
+         ],
+         "Duration": "3h 25min",
+         "Price": 340.14,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      },
+      "1": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "18:20",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5629",
+            "LH1758"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "10h 25min",
+         "Price": 713.58,
+         "Seats": "No information available"
+      },
+      "2": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "07:00",
+         "Arrival time": "16:05",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5587",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa"
+         ],
+         "Duration": "8h 05min",
+         "Price": 720.67,
+         "Seats": "8 stoel(en) over aan deze prijs"
+      },
+      "3": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "19:00",
+         "Arrival time": "01:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5631",
+            "LH5922"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Aegean Airlines"
+         ],
+         "Duration": "5h 00min",
+         "Price": 613.58,
+         "Seats": "1 stoel(en) over aan deze prijs"
+      },
+      "4": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "16:05",
+         "Stops": 2,
+         "FlightNumber": [
+            "LH5629",
+            "LH099",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa",
+            "Lufthansa"
+         ],
+         "Duration": "8h 10min",
+         "Price": 782.11,
+         "Seats": "No information available"
+      },
+      "5": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "16:05",
+         "Stops": 2,
+         "FlightNumber": [
+            "LH5629",
+            "LH101",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa",
+            "Lufthansa"
+         ],
+         "Duration": "8h 10min",
+         "Price": 782.11,
+         "Seats": "No information available"
+      }
+   }
+},{
+   "01/04/2023": {
+      "0": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "07:00",
+         "Arrival time": "17:10",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5587",
+            "LH1258"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa"
+         ],
+         "Duration": "9h 10min",
+         "Price": 691.67,
+         "Seats": "No information available"
+      },
+      "1": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "08:05",
+         "Stops": 1,
+         "FlightNumber": [
+            "OS8176",
+            "OS9173"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Austrian Airlines"
+         ],
+         "Duration": "11h 50min",
+         "Price": 429.38,
+         "Seats": "No information available"
+      },
+      "2": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "09:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "LH4416"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 45min",
+         "Price": 567.88,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      },
+      "3": {
+         "Departure": "brussel",
+         "Destination": "rhodes",
+         "Date": "01/04/2023",
+         "Departure time": "19:15",
+         "Arrival time": "09:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5589",
+            "4Y1200"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "12h 45min",
+         "Price": 567.88,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      }
+   },
+   "02/04/2023": {
+      "0": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "07:55",
+         "Arrival time": "12:20",
+         "Stops": 0,
+         "FlightNumber": [
+            "SN3255"
+         ],
+         "Airports": [
+            "Brussels Airlines"
+         ],
+         "Duration": "3h 25min",
+         "Price": 340.14,
+         "Seats": "2 stoel(en) over aan deze prijs"
+      },
+      "1": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "18:20",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5629",
+            "LH1758"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Ew Discover"
+         ],
+         "Duration": "10h 25min",
+         "Price": 713.58,
+         "Seats": "No information available"
+      },
+      "2": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "07:00",
+         "Arrival time": "16:05",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5587",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa"
+         ],
+         "Duration": "8h 05min",
+         "Price": 720.67,
+         "Seats": "8 stoel(en) over aan deze prijs"
+      },
+      "3": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "19:00",
+         "Arrival time": "01:00",
+         "Stops": 1,
+         "FlightNumber": [
+            "LH5631",
+            "LH5922"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Aegean Airlines"
+         ],
+         "Duration": "5h 00min",
+         "Price": 613.58,
+         "Seats": "1 stoel(en) over aan deze prijs"
+      },
+      "4": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "16:05",
+         "Stops": 2,
+         "FlightNumber": [
+            "LH5629",
+            "LH099",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa",
+            "Lufthansa"
+         ],
+         "Duration": "8h 10min",
+         "Price": 782.11,
+         "Seats": "No information available"
+      },
+      "5": {
+         "Departure": "brussel",
+         "Destination": "heraklion",
+         "Date": "02/04/2023",
+         "Departure time": "06:55",
+         "Arrival time": "16:05",
+         "Stops": 2,
+         "FlightNumber": [
+            "LH5629",
+            "LH101",
+            "LH1296"
+         ],
+         "Airports": [
+            "Brussels Airlines",
+            "Lufthansa",
+            "Lufthansa"
+         ],
+         "Duration": "8h 10min",
+         "Price": 782.11,
+         "Seats": "No information available"
+      }
+   },
+   "03/04/2023": {}
 }
