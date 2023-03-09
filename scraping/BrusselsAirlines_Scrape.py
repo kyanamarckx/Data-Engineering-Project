@@ -12,7 +12,7 @@ import glob
 # Get the dates from april first 2023 to october first 2023
 start_date = datetime.date(2023, 4, 1)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 4, 4)
+end_date = datetime.date(2023, 5, 1)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -23,7 +23,7 @@ while start_date < end_date:
 
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
-destinations = ["heraklion","rhodes"]
+destinations = ["heraklion"]
 
 
 # Set the header for csv file
@@ -37,9 +37,9 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
 # chrome_options.add_argument("--headless")
 
-with open("csv/BrusselsAirlines.csv", mode="w", newline="") as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(header)
+# with open("csv/BrusselsAirlines.csv", mode="w", newline="") as csvfile:
+#     writer = csv.writer(csvfile)
+#     writer.writerow(header)
 
 # Loop through the dates and destinations
 for date in dates:
@@ -166,6 +166,10 @@ for date in dates:
 
             # Get duration
             duration_text = durations.text
+            duration_string = duration_text.split("h ")
+            duration_hours = int(duration_string[0])
+            duration_minutes = int(duration_string[1].replace("min", ""))
+            duration = duration_hours * 60 + duration_minutes
 
             # Get flight number
             flightnumberArray = []
@@ -175,7 +179,7 @@ for date in dates:
 
             # Create the flight object when the flight is done by Brussels Airlines itself
             if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0 and price != "No price available" :
-                flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumberArray, "Airports": airportsArray, "Duration": duration_text, "Price": price, "Seats": seat}
+                flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumberArray, "Airports": airportsArray, "Duration": duration, "Price": price, "Seats": seat}
 
                 # key = str(str(counter) + ")" + " " + date)
 
@@ -186,7 +190,7 @@ for date in dates:
 
                 with open(filename, mode="a", newline="") as csvfile:
                     writer = csv.writer(csvfile)
-                    writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumberArray, airportsArray, duration_text, price, seat])
+                    writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumberArray, airportsArray, duration, price, seat])
 
                 counter += 1
 
@@ -230,9 +234,5 @@ df = pd.read_csv("csv/BrusselsAirlines.csv")
 df.drop_duplicates(subset=None, inplace=True)
 df.to_csv("csv/BrusselsAirlines.csv", index=False)
 
-description = open("BrusselsAirlines.md", "w")
-description.write(df.describe().to_markdown())
-df.info()
-description.close()
 
 
