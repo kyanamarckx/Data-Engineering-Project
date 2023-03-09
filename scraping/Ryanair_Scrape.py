@@ -22,6 +22,10 @@ while current_date < end_date:
     all_dates.append(current_date.strftime("%Y-%m-%d"))
     current_date += delta
 
+with open(bestandsnaam, mode="a", newline="") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(veldnamen)
+
 for dateOut in all_dates:
     for destination in all_destinations:
         for airport in all_airports:
@@ -30,7 +34,7 @@ for dateOut in all_dates:
             soup = BeautifulSoup(page.content, "lxml")
             result = soup.find("p").text
             json_object = json.loads(result)
-            writer.writerow(veldnamen)
+            
             if 'trips' in json_object and isinstance(json_object['trips'], list):
                 for trip in json_object['trips']:
                     if 'dates' in trip and isinstance(trip['dates'], list):
