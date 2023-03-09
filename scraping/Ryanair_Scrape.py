@@ -49,7 +49,6 @@ for dateOut in all_dates:
                                         flightkey = flight['flightKey']
                                         with open(bestandsnaam, mode="a", newline="") as csvfile:
                                             writer = csv.writer(csvfile)
-                                            writer.writerow(veldnamen)
                                             writer.writerow([luchthaven, bestemming, vertrektijdstip, aankomsttijdstip, prijs, duur, aantal_stops,vrije_plaatsen, vluchtnummer,flightkey])
                                         break
                                 else:
