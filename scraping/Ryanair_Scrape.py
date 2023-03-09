@@ -30,6 +30,7 @@ for dateOut in all_dates:
             soup = BeautifulSoup(page.content, "lxml")
             result = soup.find("p").text
             json_object = json.loads(result)
+            writer.writerow(veldnamen)
             if 'trips' in json_object and isinstance(json_object['trips'], list):
                 for trip in json_object['trips']:
                     if 'dates' in trip and isinstance(trip['dates'], list):
