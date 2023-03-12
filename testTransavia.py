@@ -41,10 +41,14 @@ for date in dates:
         driver = webdriver.Chrome(options=chrome_options)
         driver.maximize_window()
 
+        time.sleep(5)
+
         URL = "https://www.transavia.com/nl-BE/boek-een-vlucht/vluchten/zoeken/"
         URL = "https://www.transavia.com/nl-BE/boek-een-vlucht/uitgebreid-zoeken/zoeken/"
 
         driver.get(URL)
+
+        time.sleep(5)
 
         # driver.implicitly_wait(25)
 
@@ -90,12 +94,14 @@ for date in dates:
 
         # time.sleep(30)
            
-        
+        time.sleep(5)
 
         # departureAirport = driver.find_element(By.ID, "countryStationSelection_Origin-input").click()
         # departureAirport.send_keys("Brussel, België")
         # departureAirport = driver.execute_script("document.getElementById('routeSelection_DepartureStation-input').value='Brussel, België'")
         departureAirport = driver.execute_script("document.getElementById('countryStationSelection_Origin-input').value='Brussel, België'")
+
+        time.sleep(5)
 
         # # arrivalAirport = driver.find_element(By.ID, "countryStationSelection_Destination-input").click()
         # # arrivalAirport.send_keys(destination)
@@ -112,8 +118,10 @@ for date in dates:
         departureTitle.find_element(By.XPATH, "..")
         departureTitle.click()
 
-        # specificDate = driver.find_element(By.ID, "data-type-data").__setattr__("checked")
-        # specificDate.find_element(By.XPATH, "..").click()
+        specificDate = driver.find_element(By.ID, "data-type-data")
+        specificDate.find_element(By.XPATH, "..").click()
+
+        time.sleep(5)
 
         selectList = driver.find_element(By.ID, "data-flight-type")
         allOptions = selectList.find_elements(By.TAG_NAME, "option")
@@ -122,12 +130,16 @@ for date in dates:
                 option.click()
                 break
             
+        time.sleep(5)
+            
         departureDate = driver.execute_script("document.getElementById('timeFrameSelection_SingleFlight_OutboundDate-datepicker').value='" + date + "';")
 
-        # search = driver.find_element(By.CLASS_NAME, "button-primary").click()
+        time.sleep(5)
+
+        search = driver.find_element(By.CLASS_NAME, "button-primary").click()
             
 
         
-        time.sleep(500)
+        time.sleep(50)
 
 

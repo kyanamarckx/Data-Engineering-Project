@@ -11,9 +11,11 @@ brussel,heraklion,02/04/2023,07:00,16:05,1,"['LH5587', 'LH1296']","['Brussels Ai
 brussel,heraklion,02/04/2023,19:00,01:00,1,"['LH5631', 'LH5922']","['Brussels Airlines', 'Aegean Airlines']",300,613.58,1 stoel(en) over aan deze prijs
 brussel,heraklion,02/04/2023,06:55,16:05,2,"['LH5629', 'LH101', 'LH1296']","['Brussels Airlines', 'Lufthansa', 'Lufthansa']",490,782.11,No information available
 brussel,heraklion,02/04/2023,06:55,16:05,2,"['LH5629', 'LH099', 'LH1296']","['Brussels Airlines', 'Lufthansa', 'Lufthansa']",490,782.11,No information available
+brussel,heraklion,03/04/2023,None,None,None,None,None,None,None,None
 brussel,heraklion,04/04/2023,09:35,17:45,1,"['LH5625', 'LH1758']","['Brussels Airlines', 'Lufthansa']",430,518.58,No information available
 brussel,heraklion,05/04/2023,05:55,10:20,0,['SN3255'],['Brussels Airlines'],205,652.14,No information available
 brussel,heraklion,05/04/2023,15:00,10:15,2,"['LX4557', 'LX2819', 'LX8348']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",1095,618.59,2 stoel(en) over aan deze prijs
+brussel,heraklion,06/04/2023,None,None,None,None,None,None,None,None
 brussel,heraklion,07/04/2023,06:55,20:10,1,"['LX4545', 'LX8348']","['Brussels Airlines', 'Edelweiss Air']",735,483.24,8 stoel(en) over aan deze prijs
 brussel,heraklion,07/04/2023,09:35,17:55,1,"['LH5625', 'LH1758']","['Brussels Airlines', 'Lufthansa']",440,343.58,1 stoel(en) over aan deze prijs
 brussel,heraklion,07/04/2023,19:15,08:50,1,"['LH5589', 'LH4420']","['Brussels Airlines', 'Ew Discover']",755,414.88,5 stoel(en) over aan deze prijs
@@ -29,6 +31,7 @@ brussel,heraklion,09/04/2023,06:55,18:20,1,"['LH5629', 'LH1758']","['Brussels Ai
 brussel,heraklion,09/04/2023,07:00,16:05,1,"['LH5587', 'LH1296']","['Brussels Airlines', 'Lufthansa']",485,289.67,No information available
 brussel,heraklion,09/04/2023,19:00,01:00,1,"['LH5631', 'LH5922']","['Brussels Airlines', 'Aegean Airlines']",300,269.58,No information available
 brussel,heraklion,09/04/2023,06:55,16:05,2,"['LH5629', 'LH099', 'LH1296']","['Brussels Airlines', 'Lufthansa', 'Lufthansa']",490,406.11,4 stoel(en) over aan deze prijs
+brussel,heraklion,10/04/2023,None,None,None,None,None,None,None,None
 brussel,heraklion,11/04/2023,06:55,19:55,1,"['LX4545', 'LX8348']","['Brussels Airlines', 'Edelweiss Air']",720,373.24,No information available
 brussel,heraklion,11/04/2023,09:35,17:45,1,"['LH5625', 'LH1758']","['Brussels Airlines', 'Lufthansa']",430,131.58,No information available
 brussel,heraklion,12/04/2023,05:55,10:20,0,['SN3255'],['Brussels Airlines'],205,197.14,7 stoel(en) over aan deze prijs
@@ -46,6 +49,7 @@ brussel,heraklion,15/04/2023,06:55,12:35,1,"['LH5629', 'LH1758']","['Brussels Ai
 brussel,heraklion,15/04/2023,07:00,16:05,1,"['LH5587', 'LH1296']","['Brussels Airlines', 'Lufthansa']",485,289.67,6 stoel(en) over aan deze prijs
 brussel,heraklion,15/04/2023,19:15,08:50,1,"['LH5589', 'LH4420']","['Brussels Airlines', 'Ew Discover']",755,144.88,No information available
 brussel,heraklion,15/04/2023,19:15,08:50,1,"['LH5589', '4Y1204']","['Brussels Airlines', 'Ew Discover']",755,144.88,No information available
+brussel,heraklion,16/04/2023,None,None,None,None,None,None,None,None
 brussel,heraklion,17/04/2023,19:20,19:55,2,"['LX4563', 'LX7477', 'LX8348']","['Brussels Airlines', 'SWISS RAILWAYS', 'Edelweiss Air']",1415,257.35,7 stoel(en) over aan deze prijs
 brussel,heraklion,17/04/2023,19:20,19:55,2,"['LX4563', 'LX7475', 'LX8348']","['Brussels Airlines', 'SWISS RAILWAYS', 'Edelweiss Air']",1415,257.35,7 stoel(en) over aan deze prijs
 brussel,heraklion,17/04/2023,19:20,19:55,2,"['LX4563', 'LX2805', 'LX8348']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",1415,269.63,8 stoel(en) over aan deze prijs
@@ -57,6 +61,7 @@ brussel,heraklion,19/04/2023,15:00,10:15,2,"['LX4557', 'LX2819', 'LX8348']","['B
 brussel,heraklion,20/04/2023,09:35,15:45,1,"['LH5625', 'LH5922']","['Brussels Airlines', 'Aegean Airlines']",310,312.58,2 stoel(en) over aan deze prijs
 brussel,heraklion,20/04/2023,09:35,17:55,1,"['LH5625', 'LH1758']","['Brussels Airlines', 'Lufthansa']",440,239.58,No information available
 brussel,heraklion,20/04/2023,07:00,15:45,2,"['LH5587', 'LH100', 'LH5922']","['Brussels Airlines', 'Lufthansa', 'Aegean Airlines']",465,366.11,2 stoel(en) over aan deze prijs
+brussel,heraklion,21/04/2023,None,None,None,None,None,None,None,None
 brussel,heraklion,22/04/2023,06:20,14:15,1,"['LX4551', 'LX2350']","['Brussels Airlines', 'Swiss International Air Lines']",415,527.49,No information available
 brussel,heraklion,22/04/2023,06:55,12:35,1,"['LH5629', 'LH1758']","['Brussels Airlines', 'Lufthansa']",280,401.58,No information available
 brussel,heraklion,22/04/2023,07:00,16:05,1,"['LH5587', 'LH1296']","['Brussels Airlines', 'Lufthansa']",485,525.67,No information available
@@ -85,3 +90,5 @@ brussel,heraklion,28/04/2023,06:55,20:10,1,"['LX4545', 'LX8348']","['Brussels Ai
 brussel,heraklion,28/04/2023,19:15,08:50,1,"['LH5589', 'LH4420']","['Brussels Airlines', 'Ew Discover']",755,356.88,No information available
 brussel,heraklion,28/04/2023,19:15,08:50,1,"['LH5589', '4Y1204']","['Brussels Airlines', 'Ew Discover']",755,356.88,No information available
 brussel,heraklion,28/04/2023,19:00,08:50,2,"['LH5631', 'LH123', 'LH4420']","['Brussels Airlines', 'Lufthansa', 'Ew Discover']",770,342.32,No information available
+brussel,heraklion,29/04/2023,None,None,None,None,None,None,None,None
+brussel,heraklion,30/04/2023,None,None,None,None,None,None,None,None

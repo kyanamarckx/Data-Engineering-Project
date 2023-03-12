@@ -2,6 +2,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import datetime
 import time
 import json
@@ -10,9 +11,9 @@ import pandas as pd
 import glob
 
 # Get the dates from april first 2023 to october first 2023
-start_date = datetime.date(2023, 4, 1)
+start_date = datetime.date(2023, 5, 1)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 5, 1)
+end_date = datetime.date(2023, 5, 3)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -31,11 +32,17 @@ header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", 
 
 # driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
 
-flightsJSON = {}
+# flightsJSON = {}
+
+user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+
+desired_capabilities = DesiredCapabilities.CHROME.copy()
+desired_capabilities['chromeOptions'] = {'args': ['--user-agent={}'.format(user_agent)]}
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
 # chrome_options.add_argument("--headless")
+chrome_options.add_argument("--user-agent")
 
 # with open("csv/BrusselsAirlines.csv", mode="w", newline="") as csvfile:
 #     writer = csv.writer(csvfile)
@@ -45,7 +52,7 @@ chrome_options.add_experimental_option("prefs", {"profile.managed_default_conten
 for date in dates:
     for destination in destinations:
         # Instantiate the Chrome driver
-        driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome(options=chrome_options, desired_capabilities=desired_capabilities)
         driver.maximize_window()
 
         URL = "https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-" + destination
@@ -56,18 +63,30 @@ for date in dates:
 
         cookies = driver.find_element(By.ID, "cm-acceptAll").click()
 
+        time.sleep(2)
+
         doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
+
+        time.sleep(2)
 
         oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
         oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
 
+        time.sleep(2)
+
         departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
+
+        time.sleep(2)
 
         search = driver.find_element(By.ID, "searchFlights").click()
 
+        time.sleep(2)
+
+        driver.find_element(By.ID, "searchFlights").click()
+
         driver.implicitly_wait(30)
 
-        flights = {}
+        # flights = {}
 
         # Check if there are flights available
         noFlightsAvailable = driver.find_elements(By.ID, "warning-message-content-0")
@@ -86,10 +105,11 @@ for date in dates:
             #         file.write(",")
             #     json.dump(flights, file, indent=3)
 
-            # with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
-            #     writer = csv.writer(csvfile)
-            #     writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
-            
+            with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
+                writer = csv.writer(csvfile)
+                # writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
+                writer.writerow([departure, destination, date, None, None, None, None, None, None, None, None])
+                
             driver.quit()
             continue
 
@@ -124,6 +144,7 @@ for date in dates:
                 price = float(prices[1].format().replace(",", "."))
             except:
                 price = "No price available"
+                # continue
 
             try:
                 seats = pres_avail_class_info.find_element(By.CLASS_NAME, "seats")
@@ -179,11 +200,11 @@ for date in dates:
 
             # Create the flight object when the flight is done by Brussels Airlines itself
             if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0 and price != "No price available" :
-                flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumberArray, "Airports": airportsArray, "Duration": duration, "Price": price, "Seats": seat}
+                # flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumberArray, "Airports": airportsArray, "Duration": duration, "Price": price, "Seats": seat}
 
                 # key = str(str(counter) + ")" + " " + date)
 
-                flights.__setitem__(counter, flight)
+                # flights.__setitem__(counter, flight)
 
                 filename = "csv/BrusselsAirlines-" + destination + ".csv"
                 filename = "csv/BrusselsAirlines.csv"
@@ -194,28 +215,28 @@ for date in dates:
 
                 counter += 1
 
-        filename = "json/BrusselsAirlines-" + destination + ".json"
-        key = destination + " " + date
-        flightsJSON.__setitem__(date, flights)
+        # filename = "json/BrusselsAirlines-" + destination + ".json"
+        # key = destination + " " + date
+        # flightsJSON.__setitem__(date, flights)
 
-        with open(filename, "a") as file:
-            if os.path.getsize(filename) > 0:
-                file.seek(0, os.SEEK_END)
-                file.seek(file.tell() - 1, os.SEEK_SET)
-                file.write(",")
-            json.dump(flightsJSON, file, indent=3)
+        # with open(filename, "a") as file:
+        #     if os.path.getsize(filename) > 0:
+        #         file.seek(0, os.SEEK_END)
+        #         file.seek(file.tell() - 1, os.SEEK_SET)
+        #         file.write(",")
+        #     json.dump(flightsJSON, file, indent=3)
 
         driver.quit()
 
-flightsOVERALL = {}
-flightsOVERALL.update(flightsJSON)
+# flightsOVERALL = {}
+# flightsOVERALL.update(flightsJSON)
 
-with open("json/BrusselsAirlines.json", "w") as jsonfile:
-    # if os.path.getsize(filename) > 0:
-    #     file.seek(0, os.SEEK_END)
-    #     file.seek(file.tell() - 1, os.SEEK_SET)
-    #     file.write(",")
-    json.dump(flightsJSON, jsonfile, indent=3)
+# with open("json/BrusselsAirlines.json", "w") as jsonfile:
+#     # if os.path.getsize(filename) > 0:
+#     #     file.seek(0, os.SEEK_END)
+#     #     file.seek(file.tell() - 1, os.SEEK_SET)
+#     #     file.write(",")
+#     json.dump(flightsJSON, jsonfile, indent=3)
 
 
 # csv_files = glob.glob('*.{}'.format('csv'))
