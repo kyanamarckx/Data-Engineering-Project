@@ -108,7 +108,7 @@ for date in dates:
             with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
                 writer = csv.writer(csvfile)
                 # writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
-                writer.writerow([departure, destination, date, None, None, None, None, None, None, None, None])
+                writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None", "None"])
                 
             driver.quit()
             continue
