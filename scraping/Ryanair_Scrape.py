@@ -14,7 +14,7 @@ all_airports = ['BRU', 'CRL']
 all_dates = []
 
 bestandsnaam = "ryanair.csv"
-veldnamen = ["Luchthaven", "Bestemming", "Vertrektijdstip", "Aankomsttijdstip","prijs","duur","aantalStops","vrijePlaatsen", "VluchtNr","Flightkey"]
+veldnamen = ["Luchthaven", "Bestemming", "Datum","Vertrektijdstip", "Aankomsttijdstip","prijs","duur","aantalStops","vrijePlaatsen", "VluchtNr","Flightkey"]
 
 current_date = start_date
 
@@ -34,7 +34,6 @@ for dateOut in all_dates:
             soup = BeautifulSoup(page.content, "lxml")
             result = soup.find("p").text
             json_object = json.loads(result)
-            
             if 'trips' in json_object and isinstance(json_object['trips'], list):
                 for trip in json_object['trips']:
                     if 'dates' in trip and isinstance(trip['dates'], list):
@@ -44,22 +43,22 @@ for dateOut in all_dates:
                                     if 'flightKey' in flight:
                                         luchthaven = trip['originName'] 
                                         bestemming = trip['destinationName']
-                                        vertrektijdstip = flight['time'][0]
-                                        aankomsttijdstip = flight['time'][1]
+                                        vertrektijdstip_0 = flight['time'][0]
+                                        aankomsttijdstip_0 = flight['time'][1]
+                                        vertrektijdstip = vertrektijdstip_0.split('T')[1]
+                                        aankomsttijdstip = aankomsttijdstip_0.split('T')[1]
                                         duur = flight['duration']
                                         aantal_stops = flight['segments'][0]['segmentNr']
                                         prijs = flight['regularFare']['fares'][0]['amount']
                                         vrije_plaatsen = flight['faresLeft']
                                         vluchtnummer = flight['flightNumber']
                                         flightkey = flight['flightKey']
+                                        datum = vertrektijdstip_0.split('T')[0]
                                         with open(bestandsnaam, mode="a", newline="") as csvfile:
                                             writer = csv.writer(csvfile)
-                                            writer.writerow([luchthaven, bestemming, vertrektijdstip, aankomsttijdstip, prijs, duur, aantal_stops,vrije_plaatsen, vluchtnummer,flightkey])
-                                        break
+                                            writer.writerow([luchthaven, bestemming, datum, vertrektijdstip, aankomsttijdstip, prijs, duur, aantal_stops,vrije_plaatsen, vluchtnummer,flightkey])
                                 else:
                                     continue
-                                break
                         else:
                             continue
-                        break
 
