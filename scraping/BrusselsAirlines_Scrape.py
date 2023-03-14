@@ -1,6 +1,8 @@
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import datetime
@@ -13,7 +15,7 @@ import glob
 # Get the dates from april first 2023 to october first 2023
 start_date = datetime.date(2023, 5, 1)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 5, 3)
+end_date = datetime.date(2023, 5, 2)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -25,6 +27,8 @@ while start_date < end_date:
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
 destinations = ["heraklion"]
+destinations = ['Kreta/Heraklion']
+destinations = ['HER']
 
 
 # Set the header for csv file
@@ -56,6 +60,7 @@ for date in dates:
         driver.maximize_window()
 
         URL = "https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-" + destination
+        URL = "https://www.brusselsairlines.com/be/nl/homepage"
 
         driver.get(URL)
 
@@ -65,24 +70,34 @@ for date in dates:
 
         time.sleep(2)
 
-        doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
+        # doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
 
         time.sleep(2)
 
-        oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
-        oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
+        destinationAirport = driver.find_element(By.ID, "dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].destinationCode")
+        ActionChains(driver).move_to_element(destinationAirport).click().send_keys(destination).send_keys(Keys.RETURN).perform()
+
+        # oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
+        # oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
+
+        oneway = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').value='true';")
+        oneway1 = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').checked='true';")
 
         time.sleep(2)
 
-        departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
+        # departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
+
+        departure = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].travelDatetime').value='" + date + "';")
 
         time.sleep(2)
 
-        search = driver.find_element(By.ID, "searchFlights").click()
+        # search = driver.find_element(By.ID, "searchFlights").click()
+
+        search = driver.find_element(By.CLASS_NAME, "btn-primary").click()
 
         time.sleep(2)
 
-        driver.find_element(By.ID, "searchFlights").click()
+        # driver.find_element(By.ID, "searchFlights").click()
 
         driver.implicitly_wait(30)
 
