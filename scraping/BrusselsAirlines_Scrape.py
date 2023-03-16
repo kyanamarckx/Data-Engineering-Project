@@ -1,10 +1,12 @@
 import os
 from selenium import webdriver
+from selenium_stealth import stealth
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+# from seleniumwire import webdriver
 import datetime
 import time
 import json
@@ -27,8 +29,8 @@ while start_date < end_date:
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
 destinations = ["heraklion"]
-destinations = ['Kreta/Heraklion']
-destinations = ['HER']
+# destinations = ['Kreta/Heraklion']
+# destinations = ['HER']
 
 
 # Set the header for csv file
@@ -47,6 +49,14 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
 # chrome_options.add_argument("--headless")
 chrome_options.add_argument("--user-agent")
+chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+chrome_options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
+chrome_options.add_experimental_option('useAutomationExtension', False)
+chrome_options.add_argument("--log-level=3")
+chrome_options.add_argument("--disable-gpu")
+
+
+
 
 # with open("csv/BrusselsAirlines.csv", mode="w", newline="") as csvfile:
 #     writer = csv.writer(csvfile)
@@ -56,11 +66,22 @@ chrome_options.add_argument("--user-agent")
 for date in dates:
     for destination in destinations:
         # Instantiate the Chrome driver
-        driver = webdriver.Chrome(options=chrome_options, desired_capabilities=desired_capabilities)
+        driver = webdriver.Chrome(options=chrome_options)
+        
+        stealth(
+            driver,
+            languages=["en-US", "en"],
+            vendor="Google Inc.",
+            platform="Win32",
+            webgl_vendor="Intel Inc.",
+            renderer="Intel Iris OpenGL Engine",
+            fix_hairline=True,
+        )
+
         driver.maximize_window()
 
         URL = "https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-" + destination
-        URL = "https://www.brusselsairlines.com/be/nl/homepage"
+        # URL = "https://www.brusselsairlines.com/be/nl/homepage"
 
         driver.get(URL)
 
@@ -68,34 +89,34 @@ for date in dates:
 
         cookies = driver.find_element(By.ID, "cm-acceptAll").click()
 
-        time.sleep(2)
+        time.sleep(5)
 
-        # doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
+        doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
 
-        time.sleep(2)
+        time.sleep(5)
 
-        destinationAirport = driver.find_element(By.ID, "dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].destinationCode")
-        ActionChains(driver).move_to_element(destinationAirport).click().send_keys(destination).send_keys(Keys.RETURN).perform()
+        # destinationAirport = driver.find_element(By.ID, "dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].destinationCode")
+        # ActionChains(driver).move_to_element(destinationAirport).click().send_keys(destination).send_keys(Keys.RETURN).perform()
 
-        # oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
-        # oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
+        oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
+        oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
 
-        oneway = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').value='true';")
-        oneway1 = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').checked='true';")
+        # oneway = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').value='true';")
+        # oneway1 = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').checked='true';")
 
-        time.sleep(2)
+        time.sleep(5)
 
-        # departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
+        departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
 
-        departure = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].travelDatetime').value='" + date + "';")
+        # departure = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].travelDatetime').value='" + date + "';")
 
-        time.sleep(2)
+        time.sleep(5)
 
-        # search = driver.find_element(By.ID, "searchFlights").click()
+        search = driver.find_element(By.ID, "searchFlights").click()
 
-        search = driver.find_element(By.CLASS_NAME, "btn-primary").click()
+        # search = driver.find_element(By.CLASS_NAME, "btn-primary").click()
 
-        time.sleep(2)
+        time.sleep(5)
 
         # driver.find_element(By.ID, "searchFlights").click()
 
