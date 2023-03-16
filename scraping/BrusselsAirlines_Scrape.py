@@ -1,23 +1,19 @@
-import os
 from selenium import webdriver
 from selenium_stealth import stealth
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-# from seleniumwire import webdriver
 import datetime
 import time
-import json
 import csv
 import pandas as pd
-import glob
 
 # Get the dates from april first 2023 to october first 2023
-start_date = datetime.date(2023, 5, 1)
+start_date = datetime.date(2023, 4, 1)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 5, 2)
+end_date = datetime.date(2023, 5, 1)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -34,40 +30,36 @@ destinations = ["heraklion"]
 
 
 # Set the header for csv file
-header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price", "Seats"]
+header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price"]
+filename = "csv/BrusselsAirlines.csv"
 
 # driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
-
-# flightsJSON = {}
 
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
 
 desired_capabilities = DesiredCapabilities.CHROME.copy()
-desired_capabilities['chromeOptions'] = {'args': ['--user-agent={}'.format(user_agent)]}
+desired_capabilities['chrome.switches'] = ['--disable-gpu']
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
-# chrome_options.add_argument("--headless")
-chrome_options.add_argument("--user-agent")
 chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
 chrome_options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
 chrome_options.add_experimental_option('useAutomationExtension', False)
 chrome_options.add_argument("--log-level=3")
-chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--enable-stealth-mode")
 
-
-
-
-# with open("csv/BrusselsAirlines.csv", mode="w", newline="") as csvfile:
-#     writer = csv.writer(csvfile)
-#     writer.writerow(header)
+# Write the header to csv file
+with open(filename, mode="w", newline="") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(header)
 
 # Loop through the dates and destinations
 for date in dates:
     for destination in destinations:
         # Instantiate the Chrome driver
-        driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome(desired_capabilities=desired_capabilities, options=chrome_options)
         
+        # Instantiate the stealth
         stealth(
             driver,
             languages=["en-US", "en"],
@@ -85,208 +77,158 @@ for date in dates:
 
         driver.get(URL)
 
-        # driver.implicitly_wait(10)
+        time.sleep(2)
 
+        # Search for cookies and accept them
         cookies = driver.find_element(By.ID, "cm-acceptAll").click()
 
-        time.sleep(5)
+        time.sleep(2)
 
-        doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
-
-        time.sleep(5)
-
-        # destinationAirport = driver.find_element(By.ID, "dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].destinationCode")
-        # ActionChains(driver).move_to_element(destinationAirport).click().send_keys(destination).send_keys(Keys.RETURN).perform()
-
-        oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
-        oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
-
-        # oneway = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').value='true';")
-        # oneway1 = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').checked='true';")
-
-        time.sleep(5)
-
-        departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
-
-        # departure = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].travelDatetime').value='" + date + "';")
-
-        time.sleep(5)
-
-        search = driver.find_element(By.ID, "searchFlights").click()
-
-        # search = driver.find_element(By.CLASS_NAME, "btn-primary").click()
-
-        time.sleep(5)
-
-        # driver.find_element(By.ID, "searchFlights").click()
-
-        driver.implicitly_wait(30)
-
-        # flights = {}
-
-        # Check if there are flights available
-        noFlightsAvailable = driver.find_elements(By.ID, "warning-message-content-0")
-        if noFlightsAvailable:
-            # key = str(date)
-            # value = "No flights available for " + destination + " on " + date
-            # flight = {}
-            # flights.update(key, flight)
-
-            # filename = "json/BrusselsAirlines-" + destination + ".json"
-
-            # with open(filename, "a") as file:
-            #     if os.path.getsize(filename) > 0:
-            #         file.seek(0, os.SEEK_END)
-            #         file.seek(file.tell() - 1, os.SEEK_SET)
-            #         file.write(",")
-            #     json.dump(flights, file, indent=3)
-
-            with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
-                writer = csv.writer(csvfile)
-                # writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
-                writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None", "None"])
-                
-            driver.quit()
-            continue
-
-        # Check if there is a button to view more flights, if yes: click on it
+        # Search for doorgaan and click it to open whole menu
         try:
-            moreFlights = driver.find_element(By.CLASS_NAME, "more-flights-link-container")
-            moreFlights.click()
+            doorgaan = driver.find_element(By.CLASS_NAME, "active-hidden").click()
+        except:
+            pass
+        try:
+            doorgaan = driver.find_element(By.ID, "consentOverlay").click()
         except:
             pass
 
-        pres_avails = driver.find_elements(By.TAG_NAME, "pres-avail")
+        time.sleep(2)
+
+        # Select single flight
+        oneway = driver.execute_script("document.getElementById('flightsOneWay').value='true';")
+        oneway1 = driver.execute_script("document.getElementById('flightsOneWay').checked='true';")
+        # oneway = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').value='true';")
+        # oneway1 = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-isOneWay').checked='true';")
+
+        # Select the departure date
+        departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
+        # departure = driver.execute_script("document.getElementById('dcep-af22af4ec-9e3a-48c5-a8a5-6bdc2040438c-flm-flight-flightQuery.flightSegments[0].travelDatetime').value='" + date + "';")
+        
+        time.sleep(2)
+        # Click search
+        search = driver.find_element(By.ID, "searchFlights").click()
+        # search = driver.find_element(By.CLASS_NAME, "btn-primary").click()
+
+        # Wait for the page to load
+        driver.implicitly_wait(30)
+
+
+        # Check if there are flights available
+        # noFlightsAvailable = driver.find_elements(By.ID, "warning-message-content-0")
+        # if noFlightsAvailable:
+        #     with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
+        #         writer = csv.writer(csvfile)
+        #         # writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumber_text, airportsArray, duration_text, price, seat])
+        #         writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None", "None"])
+                
+        #     driver.quit()
+        #     continue
+
+        # Check if there is a button to view more flights, if yes: click on it
+        # try:
+        #     moreFlights = driver.find_element(By.CLASS_NAME, "more-flights-link-container")
+        #     moreFlights.click()
+        # except:
+        #     pass
+
+        # Scroll down to load all flights
+        WebDriverWait(driver, 600).until(EC.presence_of_all_elements_located((By.TAG_NAME, "refx-upsell-premium-row-pres")))
+        for i in range(7):
+            driver.find_element(By.TAG_NAME, "body").send_keys(Keys.PAGE_DOWN)
+            time.sleep(0.5)
+
+        # Get the rows of all the flights
+        rows = driver.find_elements(By.TAG_NAME, "refx-upsell-premium-row-pres")
         counter = 0
-        for pres_avail in pres_avails:
-            # TODO: Get the unique flightkey
+        for row in rows:
+            counter += 1
+
             departure = "brussel"
-            times = pres_avail.find_element(By.CLASS_NAME, "time")
-            stops = pres_avail.find_element(By.CLASS_NAME, "nbStops")
-            airports = pres_avail.find_elements(By.CLASS_NAME, "airlineName")
-            durations = pres_avail.find_element(By.CLASS_NAME, "duration")
-            cabins = pres_avail.find_element(By.CLASS_NAME, "cabins")
-            flightnumbers = pres_avail.find_elements(By.CLASS_NAME, "flightNumber")
-            pres_avail_class_info = cabins.find_element(By.TAG_NAME, "pres-avail-class-info")
-
+            departuretime = row.find_element(By.CLASS_NAME, "bound-departure-datetime").text
+            arrivaltime = row.find_element(By.CLASS_NAME, "bound-arrival-datetime").text
             try:
-                # economies = pres_avail_class_info.find_element(By.CLASS_NAME, "cabinE")
-                # prices = economies.__getattribute__("label")
-                # economies.remove(economies[0])
-                # economy = economies[counter]
-                prices = pres_avail_class_info.find_element(By.CLASS_NAME, "cabinPrice")
-                # prices = economies.find_element(By.TAG_NAME, "label")
-                prices = prices.text.split(" ")
-                price = float(prices[1].format().replace(",", "."))
+                stops = row.find_element(By.CLASS_NAME, "bound-nb-stop")
+                stop = stops.find_element(By.TAG_NAME, "span").text
+                stop = int(stop)
             except:
-                price = "No price available"
-                # continue
-
+                stop = 0
+            details = row.find_element(By.TAG_NAME, "refx-flight-details")
+            duration = details.find_element(By.CLASS_NAME, "duration-value").text
+            price = row.find_element(By.CLASS_NAME, "price-amount").text
+            if price.__contains__("."):
+                price = price.replace(".", "")
+            price = float(price.format().replace(",", "."))
             try:
-                seats = pres_avail_class_info.find_element(By.CLASS_NAME, "seats")
-                seat = seats.text
+                moreInfo = row.find_element(By.CLASS_NAME, "itin-details-link").click()
             except:
-                seat = "No information available"
+                pass
+            try:
+                moreInfo = row.find_element(By.CLASS_NAME, "flight-recap").click()
+            except:
+                pass
+            # driver.implicitly_wait(7)
 
-            # Get time
-            time_text = times.text
-            departureTime = time_text.split(" - ")[0]
-            arrivalTime = time_text.split(" - ")[1]
+            container = driver.find_element(By.TAG_NAME, "mat-dialog-container")
+            flightnumbers = container.find_elements(By.CLASS_NAME, "seg-marketing-flight-number")
+            airports = container.find_elements(By.CLASS_NAME, "operated-by-airline-name")
+            # driver.implicitly_wait(5)
+            
+            # Get flight number
+            flightnumberArray = []
+            for flightnumber in flightnumbers:
+                flightnumberValue = flightnumber.find_element(By.TAG_NAME, "b").text
+                flightnumberArray.append(flightnumberValue)
 
-            # Get stops
-            stop_text = stops.text
+            # Set the airports in an array
             airportsArray = []
-            if stop_text.startswith("1"):
-                stop_count = 1
-                # airport_text = airports[0].text + " - " + airports[1].text
+            if stop == 1:
                 airportsArray.append(airports[0].text)
                 airportsArray.append(airports[1].text)
-                # del airports[0:2]
-            elif stop_text.startswith("2"):
-                stop_count = 2
-                # airport_text = airports[0].text + " - " + airports[1].text + " - " + airports[2].text
+            elif stop == 2:
                 airportsArray.append(airports[0].text)
                 airportsArray.append(airports[1].text)
                 airportsArray.append(airports[2].text)
-                # del airports[0:3]
-            elif stop_text.startswith("3"):
-                stop_count = 3
+            elif stop == 3:
                 airportsArray.append(airports[0].text)
                 airportsArray.append(airports[1].text)
                 airportsArray.append(airports[2].text)
                 airportsArray.append(airports[3].text)
             else:
-                stop_count = 0
-                # airport_text = airports[0].text
                 airportsArray.append(airports[0].text)
-                # del airports[0]
 
-            # Get duration
-            duration_text = durations.text
-            duration_string = duration_text.split("h ")
+            closeMoreInfo = container.find_element(By.CLASS_NAME, "close-btn-bottom").click()
+            # closeMoreInfo = driver.find_element(By.CLASS_NAME, "mat-focus-indicator").click()
+
+            # Get duration in minutes as Integer
+            duration_string = duration.split("h ")
             duration_hours = int(duration_string[0])
-            duration_minutes = int(duration_string[1].replace("min", ""))
+            duration_minutes = int(duration_string[1].replace("m", ""))
             duration = duration_hours * 60 + duration_minutes
 
-            # Get flight number
-            flightnumberArray = []
-            for flightnumber in flightnumbers:
-                flightnumber_text = flightnumber.text
-                flightnumberArray.append(flightnumber_text)
-
-            # Create the flight object when the flight is done by Brussels Airlines itself
-            if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0 and price != "No price available" :
-                # flight = {"Departure": departure, "Destination": destination, "Date": date, "Departure time": departureTime, "Arrival time": arrivalTime, "Stops": stop_count, "FlightNumber": flightnumberArray, "Airports": airportsArray, "Duration": duration, "Price": price, "Seats": seat}
-
-                # key = str(str(counter) + ")" + " " + date)
-
-                # flights.__setitem__(counter, flight)
-
-                filename = "csv/BrusselsAirlines-" + destination + ".csv"
-                filename = "csv/BrusselsAirlines.csv"
-
+            # Write the flight to csv when the flight is done by Brussels Airlines itself
+            if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0:
                 with open(filename, mode="a", newline="") as csvfile:
                     writer = csv.writer(csvfile)
-                    writer.writerow([departure, destination, date, departureTime, arrivalTime, stop_count, flightnumberArray, airportsArray, duration, price, seat])
+                    writer.writerow([departure, destination, date, departuretime, arrivaltime, stop, flightnumberArray, airportsArray, duration, price])
+            
+        found = False
+        with open(filename, mode="r") as csvfile:
+            reader = csv.reader(csvfile)
+            for row in reader:
+                if row[1] == destination and row[2] == date:
+                    found = True
+                    break
 
-                counter += 1
-
-        # filename = "json/BrusselsAirlines-" + destination + ".json"
-        # key = destination + " " + date
-        # flightsJSON.__setitem__(date, flights)
-
-        # with open(filename, "a") as file:
-        #     if os.path.getsize(filename) > 0:
-        #         file.seek(0, os.SEEK_END)
-        #         file.seek(file.tell() - 1, os.SEEK_SET)
-        #         file.write(",")
-        #     json.dump(flightsJSON, file, indent=3)
+        if not found:
+            with open(filename, mode="a", newline="") as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None"])
 
         driver.quit()
 
-# flightsOVERALL = {}
-# flightsOVERALL.update(flightsJSON)
-
-# with open("json/BrusselsAirlines.json", "w") as jsonfile:
-#     # if os.path.getsize(filename) > 0:
-#     #     file.seek(0, os.SEEK_END)
-#     #     file.seek(file.tell() - 1, os.SEEK_SET)
-#     #     file.write(",")
-#     json.dump(flightsJSON, jsonfile, indent=3)
-
-
-# csv_files = glob.glob('*.{}'.format('csv'))
-# df_csv_append = pd.DataFrame()
-
-# for file in csv_files:
-#     df = pd.read_csv(file)
-#     df_csv_append = df_csv_append.append(df, ignore_index=True)
-
-# df_csv_append.drop_duplicates(subset=None, inplace=True)
-# df_csv_append.to_csv('csv/BrusselsAirlines.csv', index=False)
-
-
-
+# Remove duplicates
 df = pd.read_csv("csv/BrusselsAirlines.csv")
 df.drop_duplicates(subset=None, inplace=True)
 df.to_csv("csv/BrusselsAirlines.csv", index=False)
