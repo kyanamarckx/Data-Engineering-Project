@@ -18,7 +18,7 @@ delta = datetime.timedelta(days=1)
 dates = []
 
 while start_date < end_date:
-    dates.append(start_date.strftime("%#d %b %Y").lower())
+    dates.append(start_date.strftime("%#d %B %Y").lower())
     start_date += delta
 
 print(dates)
@@ -92,8 +92,9 @@ for date in dates:
           pass
 
         time.sleep(5)
+        driver.implicitly_wait(5)
 
-        wait = WebDriverWait(driver, 200).until(EC.presence_of_element_located((By.ID, "routeSelection_DepartureStation-input")))
+        wait = WebDriverWait(driver, 200).until(EC.presence_of_element_located((By.CLASS_NAME, "panel_section--secondary")))
 
         # departureAirport = driver.execute_script("document.getElementById('countryStationSelection_Origin-input').value='Brussel, België'")
         # departureAirport = driver.find_element(By.ID, "countryStationSelection_Origin-input").send_keys("Brussel, België")
@@ -105,10 +106,22 @@ for date in dates:
 
         oneway = driver.execute_script("document.getElementById('dateSelection_IsReturnFlight').removeAttribute('checked');")
 
-        inbounddate = driver.find_element(By.ID, "dateSelection_OutboundDate-datepicker").clear()
-
-        inbounddateClear = driver.execute_script("document.getElementById('dateSelection_OutboundDate-datepicker').value='" + date + "';")
+        # inbounddate = driver.find_element(By.ID, "dateSelection_OutboundDate-datepicker").clear()
+        # inbounddateClear = driver.execute_script("document.getElementById('dateSelection_OutboundDate-datepicker').value='" + date + "';")
+        datepickerbtn = driver.find_element(By.CLASS_NAME, "datepicker-trigger").click()
+        datepicker = driver.find_element(By.ID, "ui-datepicker-div")
         
+        month = datepicker.find_element(By.CLASS_NAME, "ui-datepicker-month").text
+        year = datepicker.find_element(By.CLASS_NAME, "ui-datepicker-year").text
+
+        while month != date.split(" ")[1]:
+            next = datepicker.find_element(By.CLASS_NAME, "ui-datepicker-next").click()
+
+        days = datepicker.find_elements(By.CLASS_NAME, "ui-state-default")
+        for day in days:
+            if day.text == date.split(" ")[0]:
+                day.click()
+                break
 
         time.sleep(10)
 
