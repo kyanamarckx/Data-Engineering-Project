@@ -11,7 +11,7 @@ import csv
 import pandas as pd
 
 # Get the dates from april first 2023 to october first 2023
-start_date = datetime.date(2023, 4, 18)
+start_date = datetime.date(2023, 4, 5)
 end_date = datetime.date(2023, 10, 1)
 end_date = datetime.date(2023, 5, 1)
 delta = datetime.timedelta(days=1)
@@ -23,8 +23,8 @@ while start_date < end_date:
 
 
 # Get the available destinations from Brussels
-destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
-destinations = ["brindisi"]
+destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
+destinations = ["faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
 
 
 # Set the header for csv file
@@ -71,8 +71,13 @@ stealth(
 # Loop through the dates and destinations
 for date in dates:
     for destination in destinations:
+        if destination == "corfu":
+            with open(filename, mode="a", newline="") as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None"])
+                continue
+
         URL = "https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-" + destination
-        # URL = "https://www.brusselsairlines.com/be/nl/homepage"
 
         driver.get(URL)
 
@@ -106,6 +111,7 @@ for date in dates:
         departure = driver.execute_script("document.getElementById('departureDate').value='" + date + "';")
         
         time.sleep(2)
+
         # Click search
         try:
             search = driver.find_element(By.ID, "searchFlights").click()
@@ -126,7 +132,7 @@ for date in dates:
             # Check if there are flights available
             noFlightsAvailable = driver.find_elements(By.TAG_NAME, "refx-no-flights-found-pres")
             if noFlightsAvailable:
-                with open("csv/BrusselsAirlines.csv", mode="a", newline="") as csvfile:
+                with open(filename, mode="a", newline="") as csvfile:
                     writer = csv.writer(csvfile)
                     writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None"])
                 continue
@@ -168,9 +174,7 @@ for date in dates:
                 moreInfo = row.find_element(By.CLASS_NAME, "flight-recap").click()
             except:
                 pass
-            # driver.implicitly_wait(7)
 
-            # WebDriverWait(driver, 600).until(EC.presence_of_all_elements_located((By.TAG_NAME, "mat-dialog-container")))
             container = driver.find_element(By.TAG_NAME, "mat-dialog-container")
             scroll = container.find_element(By.CLASS_NAME, "refx-dialog-content")
             for i in range(4):
@@ -179,7 +183,6 @@ for date in dates:
             WebDriverWait(driver, 600).until(EC.presence_of_all_elements_located((By.TAG_NAME, "refx-segment-details-pres")))
             flightnumbers = container.find_elements(By.CLASS_NAME, "seg-marketing-flight-number")
             airports = container.find_elements(By.CLASS_NAME, "operated-by-airline-name")
-            # driver.implicitly_wait(5)
             
             # Get flight number
             flightnumberArray = []
@@ -193,7 +196,6 @@ for date in dates:
                 airportsArray.append(airport.text)
 
             closeMoreInfo = container.find_element(By.CLASS_NAME, "close-btn-bottom").click()
-            # closeMoreInfo = driver.find_element(By.CLASS_NAME, "mat-focus-indicator").click()
 
             # Get duration in minutes as Integer
             duration_string = duration.split("h ")
@@ -223,6 +225,6 @@ for date in dates:
 driver.quit()
 
 # Remove duplicates
-df = pd.read_csv("csv/BrusselsAirlines.csv")
+df = pd.read_csv(filename)
 df.drop_duplicates(subset=None, inplace=True)
-df.to_csv("csv/BrusselsAirlines.csv", index=False)
+df.to_csv(filename, index=False)

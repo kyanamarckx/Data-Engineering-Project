@@ -1,182 +1,131 @@
-import os
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import http.client, urllib.request, urllib.parse, urllib.error, base64
 import datetime
-import time
 import json
 import csv
-
+import pandas as pd
 
 start_date = datetime.date(2023, 4, 1)
-# end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 4, 2)
+end_date = datetime.date(2023, 10, 1)
 delta = datetime.timedelta(days=1)
 
 dates = []
-
 while start_date < end_date:
-    dates.append(start_date.strftime("%#d %b %Y").lower())
+    dates.append(start_date.strftime('%Y%m%d'))
     start_date += delta
 
-print(dates)
-
-destinations = ['CFU', 'HER', 'RHO', 'BDS', 'NAP', 'PMO', 'FAO', 'ALC', 'IBZ', 'AGP', 'SPC', 'TFS']
-destinations = ['Corfu, Griekenland', 'Kreta (Heraklion), Griekenland', 'Rhodos, Griekenland', 'Brindisi, Italië', 'Napels, Italië', 'Sicilië (Palermo), Italië',
-                'Faro, Portugal', 'Alicante, Spanje', 'Ibiza, Spanje', 'Malaga, Spanje', 'Tenerife (Zuid), Spanje']
-destinations = ['Corfu, Griekenland', 'Kreta (Heraklion), Griekenland']
-destinations = ['Kreta (Heraklion), Griekenland']
+destinations = ['CFU', 'HER', 'RHO', 'BDS', 'NAP', 'PMO', 'FAO', 'ALC', 'IBZ', 'AGP', 'TFS']
 
 def switchDestination(destination):
    match destination:
-      case 'Corfu, Griekenland':
+      case 'CFU':
           return 'Corfu'
-      case 'Kreta (Heraklion), Griekenland':
+      case 'HER':
           return 'Kreta'
-      case 'Rhodos, Griekenland':
+      case 'RHO':
           return 'Rhodos'
-      case 'Brindisi, Italië':
+      case 'BDS':
           return 'Brindisi'
-      case 'Napels, Italië':
+      case 'NAP':
           return 'Napels'
-      case 'Sicilië (Palermo), Italië':
+      case 'PMO':
           return 'Palermo'
-      case 'Faro, Portugal':
+      case 'FAO':
           return 'Faro'
-      case 'Alicante, Spanje':
+      case 'ALC':
           return 'Alicante'
-      case 'Ibiza, Spanje':
+      case 'IBZ':
           return 'Ibiza'
-      case 'Malaga, Spanje':
+      case 'AGP':
           return 'Malaga'
-      case 'Tenerife (Zuid), Spanje':
+      case 'TFS':
           return 'Tenerife'
-       
 
-# destinations = ['CFU']
+header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Flightnumber", "Duration", "Price"]
+filename = "csv/Transavia.csv"
 
-with open("csv/Transavia.csv", "w", newline="") as csvfile:
+with open(filename, mode='w', newline="") as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerow(["Date", "Departure", "Destination", "Departure time", "Arrival time", "Duration", "Price"])
+    writer.writerow(header)
 
+for destination in destinations:
+    for date in dates:
+      headers = {
+          # Request headers
+          'apikey': '17c5625ff4424000b95a0ae6f3a23586',
+      }
+      params = urllib.parse.urlencode({
+          # Request parameters
+          'origin': 'BRU',
+          'destination': destination,
+          'originDepartureDate': date,
+      })
 
-for date in dates:
-    for destination in destinations:
-        # Instantiate the Chrome driver
-        chrome_options = webdriver.ChromeOptions()
-        # chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
-        # chrome_options.add_argument("--incognito")
-        chrome_options.add_extension("./extension/buster.crx")
-        chrome_options.add_extension("./extension/nopecha.crx")
-        driver = webdriver.Chrome(options=chrome_options)
-        driver.maximize_window()
+      try:
+        conn = http.client.HTTPSConnection('api.transavia.com')
+        conn.request("GET", "/v1/flightoffers/?%s" % params, "{body}", headers)
+        response = conn.getresponse()
+        data = response.read()
 
-        destinationString = switchDestination(destination)
+        destinationFull = switchDestination(destination)
 
-        time.sleep(6)
+        if data == b'':
+            departureTime = 'None'
+            arrivalTime = 'None'
+            price = 'None'
+            duration = 'None'
+            flightkey = 'None'
+            date = datetime.datetime.strptime(date, '%Y%m%d').strftime('%d/%m/%Y')
 
-        URL = "https://www.transavia.com/nl-BE/boek-een-vlucht/vluchten/zoeken/"
-        URL = "https://www.transavia.com/nl-BE/boek-een-vlucht/uitgebreid-zoeken/zoeken/"
-
-        driver.get(URL)
-
-        time.sleep(7)
-
-        driver.implicitly_wait(5)
-
-        try:
-          cookies = driver.find_element(By.CLASS_NAME, "cb__button--accept-all").click()
-        except:
-          pass
-
-        time.sleep(5)
-
-        wait = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.ID, "countryStationSelection_Origin-input")))
-
-        # departureAirport = driver.execute_script("document.getElementById('countryStationSelection_Origin-input').value='Brussel, België'")
-        # departureAirport = driver.find_element(By.ID, "countryStationSelection_Origin-input").send_keys("Brussel, België")
-        time.sleep(5)
-
-        # arrivalAirport = driver.execute_script("document.getElementById('countryStationSelection_Destination-input').value='" + destination + "'")
-        arrivalAirport = driver.find_element(By.ID, "countryStationSelection_Destination-input").send_keys(destination)
-        time.sleep(5)
-
-        titles = driver.find_elements(By.CLASS_NAME, "h5")
-        departureTitle = titles[2]
-        departureTitle.find_element(By.XPATH, "..")
-        departureTitle.click()
-        time.sleep(5)
-
-        specificDate = driver.execute_script("document.getElementById('data-type-data').checked='checked';")
-        specificDate1 = driver.execute_script("document.getElementById('data-type-data').click();")
-        time.sleep(5)
-
-        selectList = driver.find_element(By.ID, "data-flight-type")
-        allOptions = selectList.find_elements(By.TAG_NAME, "option")
-        for option in allOptions:
-            if option.get_attribute("value") == "Single":
-                option.click()
-                break
+            with open(filename, mode='a', newline="") as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(['Brussels', destinationFull, date, departureTime, arrivalTime, flightkey, duration, price])
             
-        time.sleep(5)
-            
-        departureDate = driver.execute_script("document.getElementById('timeFrameSelection_SingleFlight_OutboundDate-datepicker').value='" + date + "';")
-        time.sleep(5)
-
-        search = driver.find_element(By.CLASS_NAME, "button-primary").click()
-        time.sleep(5)
-
-        try:
-          wait = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, "notification-message")))
-          notification = driver.find_element(By.CLASS_NAME, "notification-message")
-
-          if notification.text == "We hebben helaas geen vluchten gevonden. Probeer het nog eens":
-            with open("csv/Transavia.csv", "a", newline="") as csvfile:
-              writer = csv.writer(csvfile)
-              writer.writerow([date, "Brussel", destinationString, "None", "None", "None", "None"])
-            driver.quit()
+            conn.close()
             continue
-        except:
-          pass
-
-        time.sleep(5)
+        data = json.loads(data)
 
         try:
-          showResults = driver.find_element(By.CLASS_NAME, "button-open").click()
-          time.sleep(5)
+            departure = data['flightOffer'][0]['outboundFlight']['departureDateTime']
+            durationDeparture = departure
+            departureTime = departure.split('T')[1]
+            departureDate = departure.split('T')[0]
+            departureTime = datetime.datetime.strptime(departureTime, '%H:%M:%S').strftime('%H:%M')
+            departureDate = datetime.datetime.strptime(departureDate, '%Y-%m-%d').strftime('%d/%m/%Y')
 
-          details = driver.find_element(By.CLASS_NAME, "toggle-button-level-2").click()
-          time.sleep(2)
+            arrivalTime = data['flightOffer'][0]['outboundFlight']['arrivalDateTime']
+            durationArrival = arrivalTime
+            arrivalTime = arrivalTime.split('T')[1]
+            arrivalTime = datetime.datetime.strptime(arrivalTime, '%H:%M:%S').strftime('%H:%M')
 
-          times = driver.find_element(By.CLASS_NAME, "HV-gu--bp20--x2-2").text
-          departureTime = times.split(" - ")[0]
-          arrivalTime = times.split(" - ")[1]
-          t1 = datetime.datetime.strptime(departureTime, "%H:%M")
-          t2 = datetime.datetime.strptime(arrivalTime, "%H:%M")
-          duration = t2 - t1
-          duration = duration.seconds / 60
-          time.sleep(5)
+            price = data['flightOffer'][0]['pricingInfoSum']['totalPriceOnePassenger']
+            price = float(price)
 
-          priceDiv = driver.find_element(By.CLASS_NAME, "HV-gu--bp22--x1-2")
-          price = priceDiv.find_element(By.CLASS_NAME, "integer").text
-          price = float(price)
-          price = price.replace(",", ".")
+            durationDeparture = datetime.datetime.strptime(durationDeparture, '%Y-%m-%dT%H:%M:%S')
+            durationArrival = datetime.datetime.strptime(durationArrival, '%Y-%m-%dT%H:%M:%S')
+            duration = durationArrival - durationDeparture
+            duration = duration.seconds / 60
+            duration = int(duration)
 
-          with open("csv/Transavia.csv", "a", newline="") as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow([date, "Brussel", destinationString, departureTime, arrivalTime, duration, price])
-
+            flightShortName = data['flightOffer'][0]['outboundFlight']['marketingAirline']['companyShortName']
+            flightnumber = data['flightOffer'][0]['outboundFlight']['flightNumber']
+            flightnumber = str(flightnumber)
+            flightkey = flightShortName + flightnumber
         except:
-          with open("csv/Transavia.csv", "a", newline="") as csvfile:
+            departureTime = 'None'
+            arrivalTime = 'None'
+            price = 'None'
+            duration = 'None'
+            flightkey = 'None'
+
+        with open(filename, mode='a', newline="") as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow([date, "Brussel", destinationString, "None", "None", "None", "None"])
-          driver.quit()
-          continue
+            writer.writerow(['Brussels', destinationFull, departureDate, departureTime, arrivalTime, flightkey, duration, price])
 
-        time.sleep(25)
+        conn.close()
+      except Exception as e:
+        print("Error has occured")
+        print(e)
 
-        driver.quit()
-      
-
-
+df = pd.read_csv(filename)
+df.drop_duplicates(subset=None, inplace=True)
+df.to_csv(filename, index=False)
