@@ -13,7 +13,7 @@ all_destinations = ['CFU', 'HER', 'RHO', 'BDS', 'NAP',
 all_airports = ['BRU', 'CRL']
 all_dates = []
 
-bestandsnaam = "ryanair.csv"
+bestandsnaam = "csv/Ryanair.csv"
 veldnamen = ["Luchthaven", "Bestemming", "Datum","Vertrektijdstip", "Aankomsttijdstip","prijs","duur","aantalStops","vrijePlaatsen", "VluchtNr","Flightkey"]
 
 current_date = start_date
