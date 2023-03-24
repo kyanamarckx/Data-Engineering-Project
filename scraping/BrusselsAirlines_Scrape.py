@@ -11,9 +11,9 @@ import csv
 import pandas as pd
 
 # Get the dates from april first 2023 to october first 2023
-start_date = datetime.date(2023, 4, 5)
+start_date = datetime.date(2023, 4, 14)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 5, 1)
+# end_date = datetime.date(2023, 4, 14)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -24,8 +24,8 @@ while start_date < end_date:
 
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
-destinations = ["faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
-
+# destinations = ["palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
+# destinations = ["faro"]
 
 # Set the header for csv file
 header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price"]
@@ -64,7 +64,7 @@ stealth(
 )
 
 # Write the header to csv file
-# with open(filename, mode="w", newline="") as csvfile:
+# with open(filename, mode="w", newline="", encoding='utf-8') as csvfile:
 #     writer = csv.writer(csvfile)
 #     writer.writerow(header)
 
@@ -132,7 +132,7 @@ for date in dates:
             # Check if there are flights available
             noFlightsAvailable = driver.find_elements(By.TAG_NAME, "refx-no-flights-found-pres")
             if noFlightsAvailable:
-                with open(filename, mode="a", newline="") as csvfile:
+                with open(filename, mode="a", newline="", encoding='utf-8') as csvfile:
                     writer = csv.writer(csvfile)
                     writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None"])
                 continue
@@ -152,20 +152,61 @@ for date in dates:
         for row in rows:
             counter += 1
 
-            departuretime = row.find_element(By.CLASS_NAME, "bound-departure-datetime").text
-            arrivaltime = row.find_element(By.CLASS_NAME, "bound-arrival-datetime").text
+            # Get all the airports
+            airports = row.find_elements(By.CLASS_NAME, "operating-airline-name")
+
+            # Get the number of stops
             try:
                 stops = row.find_element(By.CLASS_NAME, "bound-nb-stop")
                 stop = stops.find_element(By.TAG_NAME, "span").text
                 stop = int(stop)
             except:
                 stop = 0
+
+            # Set the airports in an array
+            airportsArray = []
+            for airport in airports[0:stop+1]:
+                airportsArray.append(airport.text)
+
+            #  Check if Brussels Airlines is in the array
+            if not airportsArray.__contains__("Brussels Airlines"):
+                continue
+
+            #  Get economy cabin
+            flightCardButtonSection = row.find_element(By.CLASS_NAME, "flight-card-button-section")
+            economyClassCabin = flightCardButtonSection.find_element(By.TAG_NAME, "div")
+
+            # Check if the flight is available in economy class
+            try:
+                notAvailable = economyClassCabin.find_element(By.CLASS_NAME, "not-available-card")
+                if notAvailable:
+                    continue
+            except:
+                pass
+
+            departuretime = row.find_element(By.CLASS_NAME, "bound-departure-datetime").text
+            arrivaltime = row.find_element(By.CLASS_NAME, "bound-arrival-datetime").text
+
             details = row.find_element(By.TAG_NAME, "refx-flight-details")
             duration = details.find_element(By.CLASS_NAME, "duration-value").text
-            price = row.find_element(By.CLASS_NAME, "price-amount").text
-            if price.__contains__("."):
-                price = price.replace(".", "")
-            price = float(price.format().replace(",", "."))
+
+            try:
+                economy = row.find_element(By.CLASS_NAME, "eco")
+                price = economy.find_element(By.CLASS_NAME, "price-amount").text
+                if price.__contains__("."):
+                    price = price.replace(".", "")
+                price = float(price.format().replace(",", "."))
+            except:
+                pass
+
+            try:
+                price = row.find_element(By.CLASS_NAME, "price-amount").text
+                if price.__contains__("."):
+                    price = price.replace(".", "")
+                price = float(price.format().replace(",", "."))
+            except:
+                continue
+
             try:
                 moreInfo = row.find_element(By.CLASS_NAME, "itin-details-link").click()
             except:
@@ -177,23 +218,20 @@ for date in dates:
 
             container = driver.find_element(By.TAG_NAME, "mat-dialog-container")
             scroll = container.find_element(By.CLASS_NAME, "refx-dialog-content")
+
             for i in range(4):
                 scroll.send_keys(Keys.PAGE_DOWN)
                 time.sleep(0.5)
+
             WebDriverWait(driver, 600).until(EC.presence_of_all_elements_located((By.TAG_NAME, "refx-segment-details-pres")))
+
             flightnumbers = container.find_elements(By.CLASS_NAME, "seg-marketing-flight-number")
-            airports = container.find_elements(By.CLASS_NAME, "operated-by-airline-name")
             
             # Get flight number
             flightnumberArray = []
             for flightnumber in flightnumbers:
                 flightnumberValue = flightnumber.find_element(By.TAG_NAME, "b").text
                 flightnumberArray.append(flightnumberValue)
-
-            # Set the airports in an array
-            airportsArray = []
-            for airport in airports[0:stop+1]:
-                airportsArray.append(airport.text)
 
             closeMoreInfo = container.find_element(By.CLASS_NAME, "close-btn-bottom").click()
 
@@ -204,8 +242,8 @@ for date in dates:
             duration = duration_hours * 60 + duration_minutes
 
             # Write the flight to csv when the flight is done by Brussels Airlines itself
-            if airportsArray.__contains__("Brussels Airlines") and len(airportsArray) > 0:
-                with open(filename, mode="a", newline="") as csvfile:
+            if len(airportsArray) > 0:
+                with open(filename, mode="a", newline="", encoding='utf-8') as csvfile:
                     writer = csv.writer(csvfile)
                     writer.writerow([departure, destination, date, departuretime, arrivaltime, stop, flightnumberArray, airportsArray, duration, price])
             
@@ -218,7 +256,7 @@ for date in dates:
                     break
 
         if not found:
-            with open(filename, mode="a", newline="") as csvfile:
+            with open(filename, mode="a", newline="", encoding='utf-8') as csvfile:
                 writer = csv.writer(csvfile)
                 writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None"])
 
