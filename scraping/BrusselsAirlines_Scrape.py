@@ -11,7 +11,7 @@ import csv
 import pandas as pd
 
 # Get the dates from april first 2023 to october first 2023
-start_date = datetime.date(2023, 4, 14)
+start_date = datetime.date(2023, 9, 21)
 end_date = datetime.date(2023, 10, 1)
 # end_date = datetime.date(2023, 4, 14)
 delta = datetime.timedelta(days=1)
@@ -29,7 +29,7 @@ destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", 
 
 # Set the header for csv file
 header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price"]
-filename = "csv/BrusselsAirlines.csv"
+filename = "csv/BrusselsAirlinesAugSep.csv"
 
 # driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
 
@@ -40,6 +40,8 @@ desired_capabilities = DesiredCapabilities.CHROME.copy()
 desired_capabilities['chrome.switches'] = ['--disable-gpu']
 
 # Set the options for Chrome
+driver_location = '/usr/bin/chromedriver'
+binary_location = '/usr/bin/google-chrome'
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
 chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -47,9 +49,10 @@ chrome_options.add_experimental_option("excludeSwitches", ["ignore-certificate-e
 chrome_options.add_experimental_option('useAutomationExtension', False)
 chrome_options.add_argument("--log-level=3")
 chrome_options.add_argument("--enable-stealth-mode")
-
+chrome_options.add_argument("--headless")
+chrome_options.binary_location = binary_location
 # Set the driver
-driver = webdriver.Chrome(desired_capabilities=desired_capabilities, options=chrome_options)
+driver = webdriver.Chrome(executable_path=driver_location,desired_capabilities=desired_capabilities, options=chrome_options)
 driver.maximize_window()
 
 # Instantiate stealth
@@ -76,7 +79,6 @@ for date in dates:
                 writer = csv.writer(csvfile)
                 writer.writerow([departure, destination, date, "None", "None", "None", "None", "None", "None", "None"])
                 continue
-
         URL = "https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-" + destination
 
         driver.get(URL)
