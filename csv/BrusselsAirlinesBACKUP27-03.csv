@@ -2860,3 +2860,262 @@ brussel,palma-de-mallorca,31/05/2023,06:55,13:25,1,"['LX 4545', 'LX 8246']","['B
 brussel,palma-de-mallorca,31/05/2023,06:55,13:50,1,"['LH 5629', 'LH 5328']","['Brussels Airlines', 'Eurowings']",415,532.58
 brussel,tenerife,31/05/2023,06:40,10:20,0,['SN 3781'],['Brussels Airlines'],280,223.14
 brussel,corfu,31/05/2023,None,None,None,None,None,None,None
+brussel,heraklion,01/06/2023,05:55,10:20,0,['SN 3255'],['Brussels Airlines'],205,288.14
+brussel,heraklion,01/06/2023,09:35,15:45,1,"['LH 5625', 'LH 5922']","['Brussels Airlines', 'Aegean Airlines']",310,548.58
+brussel,heraklion,01/06/2023,09:35,17:55,1,"['LH 5625', 'LH 1758']","['Brussels Airlines', 'Lufthansa']",440,343.58
+brussel,heraklion,01/06/2023,06:50,18:20,1,"['OS 8172', 'OS 9001']","['Brussels Airlines', 'Austrian Airlines']",630,458.38
+brussel,rhodes,01/06/2023,06:50,11:20,0,['SN 3233'],['Brussels Airlines'],210,311.14
+brussel,rhodes,01/06/2023,06:55,18:40,1,"['LX 4545', 'LX 8346']","['Brussels Airlines', 'Edelweiss Air']",645,584.31
+brussel,rhodes,01/06/2023,19:15,09:05,1,"['LH 5589', 'LH 4416']","['Brussels Airlines', 'EW Discover']",770,279.88
+brussel,rhodes,01/06/2023,19:15,09:05,1,"['LH 5589', '4Y 1200']","['Brussels Airlines', 'EW Discover']",770,279.88
+brussel,rhodes,01/06/2023,19:00,09:05,2,"['LH 5631', 'LH 123', 'LH 4416']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",785,383.32
+brussel,brindisi,01/06/2023,06:55,13:55,1,"['LX 4545', 'LX 1722']","['Brussels Airlines', 'Air Baltic']",420,349.31
+brussel,brindisi,01/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1722']","['Brussels Airlines', 'Swiss International Air Lines', 'Air Baltic']",455,419.78
+brussel,brindisi,01/06/2023,19:20,13:55,2,"['LX 4563', 'LX 1722']","['Brussels Airlines', 'SWISS RAILWAYS', 'Air Baltic']",1115,413.52
+brussel,napels,01/06/2023,09:35,11:55,0,['SN 3169'],['Brussels Airlines'],140,350.14
+brussel,napels,01/06/2023,19:00,22:35,1,"['LH 5631', 'LH 1880']","['Brussels Airlines', 'Lufthansa']",215,346.58
+brussel,napels,01/06/2023,19:00,22:35,1,"['SN 2647', 'SN 7181']","['Brussels Airlines', 'Lufthansa']",215,346.58
+brussel,napels,01/06/2023,07:00,12:05,1,"['SN 2607', 'SN 7183']","['Brussels Airlines', 'Lufthansa']",305,548.67
+brussel,napels,01/06/2023,07:00,12:05,1,"['LH 5587', 'LH 334']","['Brussels Airlines', 'Lufthansa']",305,548.67
+brussel,palermo,01/06/2023,06:55,11:05,1,"['LH 5629', 'LH 1914']","['Brussels Airlines', 'Lufthansa']",250,222.58
+brussel,palermo,01/06/2023,06:55,13:55,1,"['LX 4545', 'LX 1742']","['Brussels Airlines', 'Swiss International Air Lines']",420,267.31
+brussel,palermo,01/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1742']","['Brussels Airlines', 'Swiss International Air Lines']",455,385.78
+brussel,palermo,01/06/2023,19:15,11:05,2,"['LH 5589', 'LH 94', 'LH 1914']","['Brussels Airlines', 'Lufthansa']",950,282.32
+brussel,faro,01/06/2023,09:20,11:20,0,['SN 3801'],['Brussels Airlines'],180,151.14
+brussel,faro,01/06/2023,09:35,15:00,1,"['LH 5625', 'LH 1786']","['Brussels Airlines', 'Lufthansa']",385,184.58
+brussel,faro,01/06/2023,17:05,23:50,1,"['SN 3819', 'TP 1909']","['Brussels Airlines', 'Tap Air Portugal']",465,460.25
+brussel,faro,01/06/2023,09:35,17:20,1,"['SN 3815', 'TP 1903']","['Brussels Airlines', 'Tap Air Portugal']",525,395.25
+brussel,alicante,01/06/2023,05:55,08:25,0,['SN 3771'],['Brussels Airlines'],150,148.14
+brussel,alicante,01/06/2023,09:35,16:45,2,"['LH 5625', 'LH 105', 'LH 1174']","['Brussels Airlines', 'Lufthansa']",430,351.11
+brussel,ibiza,01/06/2023,06:00,08:25,0,['SN 3777'],['Brussels Airlines'],145,287.14
+brussel,ibiza,01/06/2023,06:55,11:20,1,"['LH 5629', 'LH 1846']","['Brussels Airlines', 'EW Discover']",265,422.58
+brussel,ibiza,01/06/2023,07:00,11:55,1,"['LH 5587', 'LH 4308']","['Brussels Airlines', 'EW Discover']",295,355.67
+brussel,ibiza,01/06/2023,09:35,17:25,1,"['LH 5625', 'LH 1820']","['Brussels Airlines', 'EW Discover']",470,348.58
+brussel,ibiza,01/06/2023,07:00,11:55,1,"['LH 5587', '4Y 530']","['Brussels Airlines', 'EW Discover']",295,355.67
+brussel,malaga,01/06/2023,11:55,14:45,0,['SN 3735'],['Brussels Airlines'],170,314.14
+brussel,malaga,01/06/2023,16:25,19:20,0,['SN 3737'],['Brussels Airlines'],175,145.14
+brussel,malaga,01/06/2023,07:00,12:10,1,"['LH 5587', 'LH 1148']","['Brussels Airlines', 'Lufthansa']",310,382.67
+brussel,malaga,01/06/2023,06:55,12:50,1,"['LX 4545', 'LX 2110']","['Brussels Airlines', 'Swiss International Air Lines']",355,505.31
+brussel,malaga,01/06/2023,06:50,12:55,1,"['OS 8172', 'OS 385']","['Brussels Airlines', 'Austrian Airlines']",365,510.38
+brussel,malaga,01/06/2023,06:55,15:10,1,"['LX 4545', 'LX 2114']","['Brussels Airlines', 'Swiss International Air Lines']",495,375.31
+brussel,malaga,01/06/2023,09:35,17:50,1,"['LH 5625', 'LH 1834']","['Brussels Airlines', 'EW Discover']",495,505.58
+brussel,palma-de-mallorca,01/06/2023,06:55,11:55,1,"['LX 4545', 'LX 2158']","['Brussels Airlines', 'Swiss International Air Lines']",300,372.31
+brussel,palma-de-mallorca,01/06/2023,09:35,14:40,1,"['LH 5625', 'LH 1796']","['Brussels Airlines', 'Lufthansa']",305,372.58
+brussel,palma-de-mallorca,01/06/2023,09:35,14:45,1,"['LH 5625', 'LH 5328']","['Brussels Airlines', 'Eurowings']",310,402.58
+brussel,palma-de-mallorca,01/06/2023,07:00,12:25,1,"['LH 5587', 'LH 4302']","['Brussels Airlines', 'EW Discover']",325,509.67
+brussel,palma-de-mallorca,01/06/2023,06:50,13:05,1,"['OS 8172', 'OS 433']","['Brussels Airlines', 'Austrian Airlines']",375,377.38
+brussel,tenerife,01/06/2023,13:20,17:00,0,['SN 3781'],['Brussels Airlines'],280,366.14
+brussel,tenerife,01/06/2023,06:55,17:00,1,"['LX 4545', 'LX 8214']","['Brussels Airlines', 'Edelweiss Air']",665,210.31
+brussel,tenerife,01/06/2023,06:55,16:00,2,"['LH 5629', 'LH 101', 'LH 4380']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",605,315.11
+brussel,tenerife,01/06/2023,06:55,16:00,2,"['LH 5629', 'LH 99', 'LH 4380']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",605,315.11
+brussel,tenerife,01/06/2023,06:20,17:00,2,"['LX 4551', 'LX 2809', 'LX 8214']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",700,289.78
+brussel,corfu,01/06/2023,None,None,None,None,None,None,None
+brussel,heraklion,02/06/2023,05:55,10:20,0,['SN 3255'],['Brussels Airlines'],205,158.14
+brussel,heraklion,02/06/2023,06:55,14:15,1,"['LH 5629', 'LH 5922']","['Brussels Airlines', 'Aegean Airlines']",380,743.58
+brussel,heraklion,02/06/2023,09:35,17:55,1,"['LH 5625', 'LH 1758']","['Brussels Airlines', 'EW Discover']",440,282.58
+brussel,heraklion,02/06/2023,06:55,20:10,1,"['LX 4545', 'LX 8348']","['Brussels Airlines', 'Edelweiss Air']",735,373.31
+brussel,heraklion,02/06/2023,19:15,08:50,1,"['LH 5589', 'LH 4420']","['Brussels Airlines', 'EW Discover']",755,295.88
+brussel,heraklion,02/06/2023,19:15,09:30,1,"['OS 8176', 'OS 9013']","['Brussels Airlines', 'Austrian Airlines']",795,287.38
+brussel,rhodes,02/06/2023,19:15,09:35,1,"['OS 8176', 'OS 9173']","['Brussels Airlines', 'Austrian Airlines']",800,689.38
+brussel,brindisi,02/06/2023,06:55,13:55,1,"['LX 4545', 'LX 1722']","['Brussels Airlines', 'Air Baltic']",420,349.31
+brussel,brindisi,02/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1722']","['Brussels Airlines', 'Swiss International Air Lines', 'Air Baltic']",455,419.78
+brussel,brindisi,02/06/2023,19:15,10:30,2,"['LH 5589', 'LH 122', 'LH 6908']","['Brussels Airlines', 'Lufthansa', 'Air Dolomiti']",915,425.2
+brussel,napels,02/06/2023,09:35,11:55,0,['SN 3169'],['Brussels Airlines'],140,350.14
+brussel,napels,02/06/2023,19:00,22:35,1,"['LH 5631', 'LH 1880']","['Brussels Airlines', 'Lufthansa']",215,149.58
+brussel,napels,02/06/2023,19:00,22:35,1,"['SN 2647', 'SN 7181']","['Brussels Airlines', 'Lufthansa']",215,184.58
+brussel,napels,02/06/2023,07:00,12:05,1,"['LH 5587', 'LH 334']","['Brussels Airlines', 'Lufthansa']",305,353.67
+brussel,napels,02/06/2023,07:00,12:05,1,"['SN 2607', 'SN 7183']","['Brussels Airlines', 'Lufthansa']",305,418.67
+brussel,palermo,02/06/2023,06:55,11:05,1,"['LH 5629', 'LH 1914']","['Brussels Airlines', 'Lufthansa']",250,222.58
+brussel,palermo,02/06/2023,06:55,13:55,1,"['LX 4545', 'LX 1742']","['Brussels Airlines', 'Edelweiss Air']",420,417.31
+brussel,palermo,02/06/2023,19:15,08:55,1,"['OS 8176', 'OS 487']","['Brussels Airlines', 'Austrian Airlines']",820,191.38
+brussel,palermo,02/06/2023,19:15,09:30,1,"['LH 5589', 'LH 338']","['Brussels Airlines', 'Lufthansa']",855,235.88
+brussel,palermo,02/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1742']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",455,487.78
+brussel,palermo,02/06/2023,19:15,11:05,2,"['LH 5589', 'LH 122', 'LH 1914']","['Brussels Airlines', 'Lufthansa']",950,283.2
+brussel,faro,02/06/2023,09:20,11:20,0,['SN 3801'],['Brussels Airlines'],180,190.14
+brussel,faro,02/06/2023,09:35,15:00,1,"['LH 5625', 'LH 1786']","['Brussels Airlines', 'Lufthansa']",385,184.58
+brussel,faro,02/06/2023,17:05,23:50,1,"['SN 3819', 'TP 1909']","['Brussels Airlines', 'Tap Air Portugal']",465,395.25
+brussel,faro,02/06/2023,09:15,17:20,1,"['SN 3815', 'TP 1903']","['Brussels Airlines', 'Portugália']",545,460.25
+brussel,alicante,02/06/2023,05:55,08:25,0,['SN 3771'],['Brussels Airlines'],150,233.14
+brussel,alicante,02/06/2023,09:35,17:20,1,"['LH 5625', 'LH 1848']","['Brussels Airlines', 'Lufthansa']",465,346.58
+brussel,alicante,02/06/2023,09:35,16:45,2,"['LH 5625', 'LH 105', 'LH 1174']","['Brussels Airlines', 'Lufthansa']",430,240.11
+brussel,ibiza,02/06/2023,06:55,11:20,1,"['LH 5629', 'LH 1846']","['Brussels Airlines', 'EW Discover']",265,422.58
+brussel,ibiza,02/06/2023,09:35,17:25,1,"['LH 5625', 'LH 1820']","['Brussels Airlines', 'EW Discover']",470,422.58
+brussel,malaga,02/06/2023,06:00,08:50,0,['SN 3735'],['Brussels Airlines'],170,314.14
+brussel,malaga,02/06/2023,16:25,19:20,0,['SN 3737'],['Brussels Airlines'],175,145.14
+brussel,malaga,02/06/2023,07:00,12:10,1,"['LH 5587', 'LH 1148']","['Brussels Airlines', 'Lufthansa']",310,194.67
+brussel,malaga,02/06/2023,06:20,11:55,1,"['LX 4551', 'LX 2104']","['Brussels Airlines', 'Swiss International Air Lines']",335,161.61
+brussel,malaga,02/06/2023,06:55,12:50,1,"['LX 4545', 'LX 2110']","['Brussels Airlines', 'Swiss International Air Lines']",355,505.31
+brussel,malaga,02/06/2023,06:50,12:55,1,"['OS 8172', 'OS 385']","['Brussels Airlines', 'Austrian Airlines']",365,315.38
+brussel,malaga,02/06/2023,06:55,13:40,1,"['LH 5629', 'LH 1832']","['Brussels Airlines', 'Lufthansa']",405,375.58
+brussel,malaga,02/06/2023,06:55,15:10,1,"['LX 4545', 'LX 2114']","['Brussels Airlines', 'Swiss International Air Lines']",495,375.31
+brussel,palma-de-mallorca,02/06/2023,07:00,11:10,1,"['LH 5587', 'LH 1530']","['Brussels Airlines', 'Lufthansa']",250,379.67
+brussel,palma-de-mallorca,02/06/2023,06:55,11:20,1,"['LH 5629', 'LH 1796']","['Brussels Airlines', 'EW Discover']",265,372.58
+brussel,palma-de-mallorca,02/06/2023,06:55,11:55,1,"['LX 4545', 'LX 2158']","['Brussels Airlines', 'Swiss International Air Lines']",300,372.31
+brussel,palma-de-mallorca,02/06/2023,07:00,12:25,1,"['LH 5587', 'LH 4302']","['Brussels Airlines', 'EW Discover']",325,379.67
+brussel,palma-de-mallorca,02/06/2023,13:45,19:30,1,"['LH 5627', 'LH 5328']","['Brussels Airlines', 'Eurowings']",345,292.58
+brussel,palma-de-mallorca,02/06/2023,06:55,12:50,1,"['LX 4545', 'LX 8246']","['Brussels Airlines', 'Edelweiss Air']",355,402.31
+brussel,palma-de-mallorca,02/06/2023,06:50,13:05,1,"['OS 8172', 'OS 433']","['Brussels Airlines', 'Austrian Airlines']",375,189.38
+brussel,palma-de-mallorca,02/06/2023,06:55,13:35,1,"['LH 5629', 'LH 5330']","['Brussels Airlines', 'EUROWINGS EUROPE LTD FOR EUROWINGS']",400,532.58
+brussel,palma-de-mallorca,02/06/2023,13:45,20:35,1,"['LH 5627', 'LH 5334']","['Brussels Airlines', 'Eurowings']",410,292.58
+brussel,tenerife,02/06/2023,13:20,17:00,0,['SN 3781'],['Brussels Airlines'],280,223.14
+brussel,tenerife,02/06/2023,15:00,09:45,2,"['LX 4557', 'LX 2819', 'LX 8214']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",1185,208.78
+brussel,corfu,02/06/2023,None,None,None,None,None,None,None
+brussel,heraklion,03/06/2023,05:55,10:20,0,['SN 3255'],['Brussels Airlines'],205,197.14
+brussel,heraklion,03/06/2023,15:25,19:50,0,['SN 3257'],['Brussels Airlines'],205,158.14
+brussel,heraklion,03/06/2023,06:55,12:35,1,"['LH 5629', 'LH 1758']","['Brussels Airlines', 'Lufthansa']",280,401.58
+brussel,heraklion,03/06/2023,06:55,14:15,1,"['LH 5629', 'LH 5922']","['Brussels Airlines', 'Aegean Airlines']",380,743.58
+brussel,heraklion,03/06/2023,06:20,14:15,1,"['LX 4551', 'LX 2350']","['Brussels Airlines', 'Swiss International Air Lines']",415,291.61
+brussel,heraklion,03/06/2023,07:00,16:05,1,"['LH 5587', 'LH 1296']","['Brussels Airlines', 'Lufthansa']",485,460.67
+brussel,heraklion,03/06/2023,19:15,08:50,1,"['LH 5589', 'LH 4420']","['Brussels Airlines', 'EW Discover']",755,252.88
+brussel,rhodes,03/06/2023,06:00,10:30,0,['SN 3233'],['Brussels Airlines'],210,311.14
+brussel,rhodes,03/06/2023,06:55,16:30,1,"['LH 5629', 'LH 1748']","['Brussels Airlines', 'EW Discover']",515,955.58
+brussel,rhodes,03/06/2023,19:15,08:05,1,"['OS 8176', 'OS 9173']","['Brussels Airlines', 'Austrian Airlines']",710,271.38
+brussel,rhodes,03/06/2023,19:15,09:00,1,"['LH 5589', 'LH 4416']","['Brussels Airlines', 'EW Discover']",765,385.88
+brussel,rhodes,03/06/2023,19:15,09:00,1,"['LH 5589', '4Y 1200']","['Brussels Airlines', 'EW Discover']",765,385.88
+brussel,rhodes,03/06/2023,19:15,15:00,2,"['LH 5589', 'LH 96', 'LH 1748']","['Brussels Airlines', 'Lufthansa']",1125,629.32
+brussel,rhodes,03/06/2023,19:15,15:00,2,"['LH 5589', 'LH 94', 'LH 1748']","['Brussels Airlines', 'Lufthansa']",1125,629.32
+brussel,brindisi,03/06/2023,14:05,16:45,0,['SN 3103'],['Brussels Airlines'],160,236.14
+brussel,brindisi,03/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1722']","['Brussels Airlines', 'Swiss International Air Lines']",455,419.78
+brussel,brindisi,03/06/2023,15:00,08:45,2,"['LX 4557', 'LX 2819', 'LX 1718']","['Brussels Airlines', 'Swiss International Air Lines', 'Helvetic Airways']",1065,200.78
+brussel,napels,03/06/2023,09:35,11:55,0,['SN 3169'],['Brussels Airlines'],140,480.14
+brussel,napels,03/06/2023,19:00,22:35,1,"['SN 2647', 'SN 7181']","['Brussels Airlines', 'Lufthansa']",215,149.58
+brussel,napels,03/06/2023,19:00,22:35,1,"['LH 5631', 'LH 1880']","['Brussels Airlines', 'Lufthansa']",215,149.58
+brussel,napels,03/06/2023,06:55,12:25,1,"['LH 5629', 'LH 1876']","['Brussels Airlines', 'Lufthansa']",330,541.58
+brussel,napels,03/06/2023,06:55,12:25,1,"['SN 2641', 'SN 7177']","['Brussels Airlines', 'Lufthansa']",330,541.58
+brussel,palermo,03/06/2023,06:55,11:05,1,"['LH 5629', 'LH 1914']","['Brussels Airlines', 'Lufthansa']",250,222.58
+brussel,palermo,03/06/2023,06:55,16:35,1,"['LH 5629', 'LH 1916']","['Brussels Airlines', 'Lufthansa Cityline']",580,315.58
+brussel,palermo,03/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1742']","['Brussels Airlines', 'Swiss International Air Lines']",455,487.78
+brussel,palermo,03/06/2023,07:00,16:35,2,"['LH 5587', 'LH 104', 'LH 1916']","['Brussels Airlines', 'Lufthansa', 'Lufthansa Cityline']",575,384.11
+brussel,faro,03/06/2023,09:20,11:20,0,['SN 3801'],['Brussels Airlines'],180,190.14
+brussel,faro,03/06/2023,07:00,12:20,1,"['LH 5587', 'LH 1498']","['Brussels Airlines', 'Lufthansa']",380,479.67
+brussel,faro,03/06/2023,06:55,13:00,1,"['LH 5629', 'LH 1786']","['Brussels Airlines', 'Lufthansa']",425,232.58
+brussel,faro,03/06/2023,17:05,23:50,1,"['SN 3819', 'TP 1909']","['Brussels Airlines', 'Tap Air Portugal']",465,395.25
+brussel,faro,03/06/2023,09:15,17:20,1,"['SN 3815', 'TP 1903']","['Brussels Airlines', 'Tap Air Portugal']",545,395.25
+brussel,alicante,03/06/2023,05:55,08:25,0,['SN 3771'],['Brussels Airlines'],150,285.14
+brussel,alicante,03/06/2023,17:20,19:50,0,['SN 3773'],['Brussels Airlines'],150,148.14
+brussel,alicante,03/06/2023,06:55,17:20,1,"['LH 5629', 'LH 1848']","['Brussels Airlines', 'Lufthansa']",625,190.58
+brussel,alicante,03/06/2023,06:20,14:40,2,"['LX 4551', 'LX 2807', 'LX 2174']","['Brussels Airlines', 'Swiss International Air Lines', 'Air Baltic']",500,533.78
+brussel,alicante,03/06/2023,07:00,17:20,2,"['LH 5587', 'LH 104', 'LH 1848']","['Brussels Airlines', 'Lufthansa']",620,467.11
+brussel,ibiza,03/06/2023,15:55,18:20,0,['SN 3777'],['Brussels Airlines'],145,287.14
+brussel,ibiza,03/06/2023,07:00,11:55,1,"['LH 5587', 'LH 4308']","['Brussels Airlines', 'EW Discover']",295,429.67
+brussel,ibiza,03/06/2023,07:00,14:45,1,"['LH 5587', 'LH 1466']","['Brussels Airlines', 'Lufthansa']",465,429.67
+brussel,ibiza,03/06/2023,06:55,15:15,1,"['LH 5629', 'LH 1846']","['Brussels Airlines', 'Lufthansa']",500,422.58
+brussel,ibiza,03/06/2023,19:00,10:20,1,"['LH 5631', 'LH 1820']","['Brussels Airlines', 'EW Discover']",920,131.67
+brussel,ibiza,03/06/2023,07:00,11:55,1,"['LH 5587', '4Y 530']","['Brussels Airlines', 'EW Discover']",295,429.67
+brussel,ibiza,03/06/2023,06:55,14:45,2,"['LH 5629', 'LH 101', 'LH 1466']","['Brussels Airlines', 'Lufthansa']",470,491.11
+brussel,ibiza,03/06/2023,06:55,14:45,2,"['LH 5629', 'LH 99', 'LH 1466']","['Brussels Airlines', 'Lufthansa']",470,417.11
+brussel,malaga,03/06/2023,06:00,08:50,0,['SN 3733'],['Brussels Airlines'],170,145.14
+brussel,malaga,03/06/2023,11:55,14:45,0,['SN 3735'],['Brussels Airlines'],170,249.14
+brussel,malaga,03/06/2023,16:25,19:20,0,['SN 3737'],['Brussels Airlines'],175,210.14
+brussel,malaga,03/06/2023,07:00,12:10,1,"['LH 5587', 'LH 1148']","['Brussels Airlines', 'Lufthansa']",310,382.67
+brussel,malaga,03/06/2023,06:55,13:40,1,"['LH 5629', 'LH 1832']","['Brussels Airlines', 'Lufthansa']",405,375.58
+brussel,palma-de-mallorca,03/06/2023,14:15,16:30,0,['SN 3765'],['Brussels Airlines'],135,441.14
+brussel,palma-de-mallorca,03/06/2023,15:00,17:10,0,['SN 3767'],['Brussels Airlines'],130,246.14
+brussel,palma-de-mallorca,03/06/2023,07:00,11:10,1,"['LH 5587', 'LH 1530']","['Brussels Airlines', 'Lufthansa']",250,509.67
+brussel,palma-de-mallorca,03/06/2023,07:00,12:25,1,"['LH 5587', 'LH 4302']","['Brussels Airlines', 'EW Discover']",325,509.67
+brussel,palma-de-mallorca,03/06/2023,06:55,13:00,1,"['LH 5629', 'LH 1796']","['Brussels Airlines', 'Lufthansa']",365,502.58
+brussel,tenerife,03/06/2023,13:20,17:00,0,['SN 3781'],['Brussels Airlines'],280,223.14
+brussel,tenerife,03/06/2023,07:00,15:55,1,"['LH 5587', 'LH 4380']","['Brussels Airlines', 'EW Discover']",595,434.67
+brussel,tenerife,03/06/2023,07:00,15:55,1,"['LH 5587', '4Y 306']","['Brussels Airlines', 'EW Discover']",595,434.67
+brussel,tenerife,03/06/2023,06:55,15:55,2,"['LH 5629', 'LH 101', 'LH 4380']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",600,315.11
+brussel,tenerife,03/06/2023,06:55,15:55,2,"['LH 5629', 'LH 99', 'LH 4380']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",600,315.11
+brussel,tenerife,03/06/2023,15:00,09:35,2,"['LX 4557', 'LX 2819', 'LX 8214']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",1175,248.78
+brussel,corfu,03/06/2023,None,None,None,None,None,None,None
+brussel,heraklion,04/06/2023,07:55,12:20,0,['SN 3255'],['Brussels Airlines'],205,236.14
+brussel,heraklion,04/06/2023,19:00,01:00,1,"['LH 5631', 'LH 5922']","['Brussels Airlines', 'Aegean Airlines']",300,221.58
+brussel,heraklion,04/06/2023,07:00,16:05,1,"['LH 5587', 'LH 1296']","['Brussels Airlines', 'Lufthansa']",485,350.67
+brussel,heraklion,04/06/2023,06:55,18:20,1,"['LH 5629', 'LH 1758']","['Brussels Airlines', 'Lufthansa']",625,282.58
+brussel,rhodes,04/06/2023,15:05,19:35,0,['SN 3233'],['Brussels Airlines'],210,623.14
+brussel,rhodes,04/06/2023,06:55,15:00,1,"['LH 5629', 'LH 1748']","['Brussels Airlines', 'Lufthansa']",425,554.58
+brussel,rhodes,04/06/2023,07:00,15:00,2,"['LH 5587', 'LH 98', 'LH 1748']","['Brussels Airlines', 'Lufthansa']",420,623.11
+brussel,brindisi,04/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1722']","['Brussels Airlines', 'Swiss International Air Lines']",455,355.78
+brussel,brindisi,04/06/2023,06:20,19:35,2,"['LX 4551', 'LX 1720']","['Brussels Airlines', 'SWISS RAILWAYS', 'Air Baltic']",795,128.52
+brussel,napels,04/06/2023,09:35,11:55,0,['SN 3169'],['Brussels Airlines'],140,610.14
+brussel,napels,04/06/2023,19:00,22:35,1,"['SN 2647', 'SN 7181']","['Brussels Airlines', 'Lufthansa']",215,149.58
+brussel,napels,04/06/2023,19:00,22:35,1,"['LH 5631', 'LH 1880']","['Brussels Airlines', 'Lufthansa']",215,149.58
+brussel,napels,04/06/2023,07:00,12:05,1,"['SN 2607', 'SN 7183']","['Brussels Airlines', 'Lufthansa']",305,548.67
+brussel,napels,04/06/2023,07:00,12:05,1,"['LH 5587', 'LH 334']","['Brussels Airlines', 'Lufthansa']",305,548.67
+brussel,napels,04/06/2023,06:55,12:25,1,"['LH 5629', 'LH 1876']","['Brussels Airlines', 'Lufthansa']",330,346.58
+brussel,napels,04/06/2023,06:55,12:25,1,"['SN 2641', 'SN 7177']","['Brussels Airlines', 'Lufthansa']",330,346.58
+brussel,palermo,04/06/2023,06:55,11:05,1,"['LH 5629', 'LH 1914']","['Brussels Airlines', 'Lufthansa']",250,222.58
+brussel,palermo,04/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1742']","['Brussels Airlines', 'Swiss International Air Lines']",455,385.78
+brussel,palermo,04/06/2023,06:20,18:45,2,"['LX 4551', 'LX 2811', 'LX 1744']","['Brussels Airlines', 'Swiss International Air Lines']",745,385.78
+brussel,faro,04/06/2023,08:40,10:40,0,['SN 3801'],['Brussels Airlines'],180,151.14
+brussel,faro,04/06/2023,07:00,12:20,1,"['LH 5587', 'LH 1498']","['Brussels Airlines', 'Lufthansa']",380,414.67
+brussel,faro,04/06/2023,06:55,13:00,1,"['LH 5629', 'LH 1786']","['Brussels Airlines', 'Lufthansa']",425,184.58
+brussel,faro,04/06/2023,09:15,13:05,1,"['SN 3815', 'TP 1905']","['Brussels Airlines', 'Portugália']",290,655.25
+brussel,faro,04/06/2023,17:05,23:50,1,"['SN 3819', 'TP 1909']","['Brussels Airlines', 'Tap Air Portugal']",465,395.25
+brussel,faro,04/06/2023,09:15,17:20,1,"['SN 3815', 'TP 1903']","['Brussels Airlines', 'Portugália']",545,785.25
+brussel,faro,04/06/2023,07:00,13:00,2,"['LH 5587', 'LH 98', 'LH 1786']","['Brussels Airlines', 'Lufthansa']",420,225.11
+brussel,alicante,04/06/2023,05:55,08:25,0,['SN 3771'],['Brussels Airlines'],150,148.14
+brussel,ibiza,04/06/2023,06:00,08:25,0,['SN 3777'],['Brussels Airlines'],145,287.14
+brussel,ibiza,04/06/2023,07:00,12:05,1,"['LH 5587', 'LH 4308']","['Brussels Airlines', 'EW Discover']",305,131.67
+brussel,ibiza,04/06/2023,06:55,16:25,1,"['LH 5629', 'LH 1846']","['Brussels Airlines', 'EW Discover']",570,82.58
+brussel,ibiza,04/06/2023,07:00,12:05,1,"['LH 5587', '4Y 530']","['Brussels Airlines', 'EW Discover']",305,131.67
+brussel,ibiza,04/06/2023,07:00,16:25,2,"['LH 5587', 'LH 100', 'LH 1846']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",565,111.11
+brussel,ibiza,04/06/2023,07:00,16:25,2,"['LH 5587', 'LH 104', 'LH 1846']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",565,131.11
+brussel,malaga,04/06/2023,06:00,08:50,0,['SN 3733'],['Brussels Airlines'],170,145.14
+brussel,malaga,04/06/2023,10:30,13:20,0,['SN 3735'],['Brussels Airlines'],170,145.14
+brussel,malaga,04/06/2023,16:25,19:20,0,['SN 3737'],['Brussels Airlines'],175,145.14
+brussel,malaga,04/06/2023,07:00,12:10,1,"['LH 5587', 'LH 1148']","['Brussels Airlines', 'Lufthansa']",310,317.67
+brussel,malaga,04/06/2023,06:55,13:40,1,"['LH 5629', 'LH 1832']","['Brussels Airlines', 'Lufthansa']",405,310.58
+brussel,malaga,04/06/2023,06:20,13:50,1,"['LX 4551', 'LX 2104']","['Brussels Airlines', 'Swiss International Air Lines']",450,196.61
+brussel,malaga,04/06/2023,06:55,17:50,1,"['LH 5629', 'LH 1834']","['Brussels Airlines', 'Lufthansa']",655,310.58
+brussel,palma-de-mallorca,04/06/2023,13:55,16:10,0,['SN 3765'],['Brussels Airlines'],135,311.14
+brussel,palma-de-mallorca,04/06/2023,07:00,11:10,1,"['LH 5587', 'LH 1530']","['Brussels Airlines', 'Lufthansa']",250,314.67
+brussel,palma-de-mallorca,04/06/2023,06:55,12:00,1,"['LH 5629', 'LH 5330']","['Brussels Airlines', 'EUROWINGS EUROPE LTD FOR EUROWINGS']",305,244.58
+brussel,palma-de-mallorca,04/06/2023,07:00,12:25,1,"['LH 5587', 'LH 4302']","['Brussels Airlines', 'EW Discover']",325,379.67
+brussel,palma-de-mallorca,04/06/2023,06:20,12:40,1,"['LX 4551', 'LX 2168']","['Brussels Airlines', 'Swiss International Air Lines']",380,316.64
+brussel,palma-de-mallorca,04/06/2023,06:55,13:25,1,"['LH 5629', 'LH 5338']","['Brussels Airlines', 'Eurowings']",390,244.58
+brussel,palma-de-mallorca,04/06/2023,13:45,20:15,1,"['LH 5627', 'LH 5334']","['Brussels Airlines', 'Eurowings']",390,179.58
+brussel,tenerife,04/06/2023,13:20,17:00,0,['SN 3781'],['Brussels Airlines'],280,223.14
+brussel,tenerife,04/06/2023,07:00,16:00,1,"['LH 5587', 'LH 4380']","['Brussels Airlines', 'EW Discover']",600,272.67
+brussel,tenerife,04/06/2023,07:00,16:00,1,"['LH 5587', '4Y 306']","['Brussels Airlines', 'EW Discover']",600,272.67
+brussel,tenerife,04/06/2023,06:55,16:00,2,"['LH 5629', 'LH 101', 'LH 4380']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",605,315.11
+brussel,tenerife,04/06/2023,06:55,16:00,2,"['LH 5629', 'LH 99', 'LH 4380']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",605,315.11
+brussel,tenerife,04/06/2023,15:00,09:55,2,"['LX 4557', 'LX 2819', 'LX 8214']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",1195,248.83
+brussel,corfu,04/06/2023,None,None,None,None,None,None,None
+brussel,heraklion,05/06/2023,05:55,10:20,0,['SN 3255'],['Brussels Airlines'],205,340.14
+brussel,heraklion,05/06/2023,06:50,15:30,1,"['OS 8172', 'OS 9001']","['Brussels Airlines', 'Austrian Airlines']",460,718.38
+brussel,heraklion,05/06/2023,09:35,19:00,2,"['LH 5625', 'LH 105', 'LH 4420']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",505,406.11
+brussel,rhodes,05/06/2023,06:55,18:50,1,"['LX 4545', 'LX 8346']","['Brussels Airlines', 'Edelweiss Air']",655,584.33
+brussel,brindisi,05/06/2023,06:55,13:55,1,"['LX 4545', 'LX 1722']","['Brussels Airlines', 'Swiss International Air Lines']",420,349.33
+brussel,brindisi,05/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1722']","['Brussels Airlines', 'Swiss International Air Lines']",455,419.83
+brussel,brindisi,05/06/2023,19:20,13:55,2,"['LX 4563', 'LX 1722']","['Brussels Airlines', 'SWISS RAILWAYS', 'Swiss International Air Lines']",1115,478.56
+brussel,napels,05/06/2023,09:35,11:55,0,['SN 3169'],['Brussels Airlines'],140,285.14
+brussel,napels,05/06/2023,19:00,22:35,1,"['LH 5631', 'LH 1880']","['Brussels Airlines', 'Lufthansa']",215,95.58
+brussel,napels,05/06/2023,19:00,22:35,1,"['SN 2647', 'SN 7181']","['Brussels Airlines', 'Lufthansa']",215,95.58
+brussel,napels,05/06/2023,06:55,12:25,1,"['SN 2641', 'SN 7177']","['Brussels Airlines', 'Lufthansa']",330,184.58
+brussel,napels,05/06/2023,06:55,12:25,1,"['LH 5629', 'LH 1876']","['Brussels Airlines', 'Lufthansa']",330,184.58
+brussel,palermo,05/06/2023,06:55,11:05,1,"['LH 5629', 'LH 1914']","['Brussels Airlines', 'EW Discover']",250,222.58
+brussel,palermo,05/06/2023,06:55,13:55,1,"['LX 4545', 'LX 1742']","['Brussels Airlines', 'Swiss International Air Lines']",420,315.33
+brussel,palermo,05/06/2023,06:20,13:55,2,"['LX 4551', 'LX 2807', 'LX 1742']","['Brussels Airlines', 'Swiss International Air Lines']",455,385.83
+brussel,palermo,05/06/2023,19:15,11:05,2,"['LH 5589', 'LH 122', 'LH 1914']","['Brussels Airlines', 'Lufthansa', 'EW Discover']",950,283.2
+brussel,faro,05/06/2023,09:20,11:20,0,['SN 3801'],['Brussels Airlines'],180,151.14
+brussel,faro,05/06/2023,09:35,15:00,1,"['LH 5625', 'LH 1786']","['Brussels Airlines', 'Lufthansa']",385,111.58
+brussel,faro,05/06/2023,17:05,23:50,1,"['SN 3819', 'TP 1909']","['Brussels Airlines', 'Tap Air Portugal']",465,291.25
+brussel,faro,05/06/2023,09:15,17:20,1,"['SN 3815', 'TP 1903']","['Brussels Airlines', 'Portugália']",545,395.25
+brussel,alicante,05/06/2023,05:55,08:25,0,['SN 3771'],['Brussels Airlines'],150,148.14
+brussel,alicante,05/06/2023,06:55,19:00,1,"['LX 4545', 'LX 2174']","['Brussels Airlines', 'Helvetic Airways']",725,190.33
+brussel,alicante,05/06/2023,06:20,19:00,2,"['LX 4551', 'LX 2809', 'LX 2174']","['Brussels Airlines', 'Swiss International Air Lines', 'Helvetic Airways']",760,241.83
+brussel,alicante,05/06/2023,06:20,19:00,2,"['LX 4551', 'LX 2807', 'LX 2174']","['Brussels Airlines', 'Swiss International Air Lines', 'Helvetic Airways']",760,241.83
+brussel,ibiza,05/06/2023,06:55,11:20,1,"['LH 5629', 'LH 1846']","['Brussels Airlines', 'EW Discover']",265,189.58
+brussel,ibiza,05/06/2023,07:00,11:55,1,"['LH 5587', 'LH 4308']","['Brussels Airlines', 'EW Discover']",295,355.67
+brussel,ibiza,05/06/2023,09:35,17:25,1,"['LH 5625', 'LH 1820']","['Brussels Airlines', 'EW Discover']",470,82.58
+brussel,ibiza,05/06/2023,06:55,14:55,1,"['LX 4545', 'LX 8266']","['Brussels Airlines', 'Edelweiss Air']",480,180.33
+brussel,ibiza,05/06/2023,07:00,11:55,1,"['LH 5587', '4Y 530']","['Brussels Airlines', 'EW Discover']",295,355.67
+brussel,malaga,05/06/2023,11:55,14:45,0,['SN 3735'],['Brussels Airlines'],170,249.14
+brussel,malaga,05/06/2023,16:25,19:20,0,['SN 3737'],['Brussels Airlines'],175,119.14
+brussel,malaga,05/06/2023,07:00,12:10,1,"['LH 5587', 'LH 1148']","['Brussels Airlines', 'Lufthansa']",310,159.67
+brussel,malaga,05/06/2023,06:55,12:50,1,"['LX 4545', 'LX 2110']","['Brussels Airlines', 'Swiss International Air Lines']",355,187.33
+brussel,malaga,05/06/2023,06:50,12:55,1,"['OS 8172', 'OS 385']","['Brussels Airlines', 'Austrian Airlines']",365,380.38
+brussel,malaga,05/06/2023,06:55,15:10,1,"['LX 4545', 'LX 2114']","['Brussels Airlines', 'Swiss International Air Lines']",495,152.33
+brussel,malaga,05/06/2023,09:35,17:50,1,"['LH 5625', 'LH 1834']","['Brussels Airlines', 'EW Discover']",495,152.58
+brussel,palma-de-mallorca,05/06/2023,09:35,14:10,1,"['LH 5625', 'LH 1794']","['Brussels Airlines', 'Lufthansa']",275,184.58
+brussel,palma-de-mallorca,05/06/2023,06:55,11:55,1,"['LX 4545', 'LX 2158']","['Brussels Airlines', 'Helvetic Airways']",300,307.33
+brussel,palma-de-mallorca,05/06/2023,07:00,12:25,1,"['LH 5587', 'LH 4302']","['Brussels Airlines', 'EW Discover']",325,379.67
+brussel,palma-de-mallorca,05/06/2023,13:45,19:55,1,"['LH 5627', 'LH 5328']","['Brussels Airlines', 'Eurowings']",370,179.58
+brussel,palma-de-mallorca,05/06/2023,06:50,13:05,1,"['OS 8172', 'OS 433']","['Brussels Airlines', 'Austrian Airlines']",375,377.38
+brussel,palma-de-mallorca,05/06/2023,06:55,13:20,1,"['LH 5629', 'LH 5332']","['Brussels Airlines', 'EUROWINGS EUROPE LTD FOR EUROWINGS']",385,214.58
+brussel,tenerife,05/06/2023,15:00,09:50,2,"['LX 4557', 'LX 2819', 'LX 8214']","['Brussels Airlines', 'Swiss International Air Lines', 'Edelweiss Air']",1190,208.83
+brussel,corfu,05/06/2023,None,None,None,None,None,None,None
