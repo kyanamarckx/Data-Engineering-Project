@@ -16,7 +16,9 @@ url = "http://www.tuifly.be/flight/nl/"
 url2 = "http://www.tuifly.be/flight/nl/search?flyingFrom%5B%5D=BRU&flyingTo%5B%5D={0}&depDate={1}&adults=1&children=0&childAge=&choiceSearch=true&searchType=pricegrid&nearByAirports=true&currency=EUR&isOneWay=true"
 
 departureAirports = {'Brussel', 'Antwerpen', 'Luik', 'Brugge-Oostende'}
-arrivalAirports = ['CFU', 'ALC', 'HER', 'RHO', 'BDS', 'NAP', 'PMO', 'FAO', 'AGP', 'SPC', 'TFS', 'IBZ']
+arrivalAirports = ['ALC', 'CFU', 'HER', 'RHO', 'BDS', 'NAP', 'PMO', 'FAO', 'AGP', 'SPC', 'TFS', 'IBZ']
+
+filename = 'csv/tui2.csv'
 
 dates = pd.date_range(start='2023-04-04', end='2023-10-03', freq='7D')
 datesPerDay = pd.date_range(start='2023-04-01', end='2023-10-01', freq='1D')
@@ -30,8 +32,8 @@ driver_service = Service(executable_path=PATH)
 arrayWithAllDates = [datum.strftime('%Y-%m-%d') for datum in dates]
 arrayWithAllDatesPerDay = [datum.strftime('%Y-%m-%d') for datum in datesPerDay]
 
-headersCsv = ["datumVanVertrek", "vertrekLuchthaven", "aankomstLuchthaven", "vertrekTijd", "aankomstTijd", "prijs", "duur", "vrijeZitplaatsen", "vluchtNummer", "aantalStops"]
-with open('csv/tui.csv', mode='a', newline="") as csvFile:
+headersCsv = ["datumVanVertrek", "vertrekLuchthaven", "aankomstLuchthaven", "vertrekTijd", "aankomstTijd", "prijs", "duur", "vrijeZitplaatsen", "vluchtNummer", "aantalStops", "vertrekLuchthavenCode", "aankomstLuchthavenCode"]
+with open(filename, mode='a', newline="") as csvFile:
     writer = csv.writer(csvFile)
     writer.writerow(headersCsv)
 
@@ -60,6 +62,7 @@ for arriAirport in arrivalAirports:
 
             alleVluchtenList = json_object['flightViewData'] # alle vluchten die beschikbaar zijn in een bepaalde week
             weekMetOutboundDataList = json_object['dateAvailabilityData']['outboundAvailabilityData'] # elke dag van de week met data in of dat een vlucht beschikbaar is of niet
+            # luchthavenIATA = json_object['flightSearchCriteria']
 
             while i < len(weekMetOutboundDataList):
                 datumInWeek = weekMetOutboundDataList[i]['displayDate']
@@ -80,12 +83,14 @@ for arriAirport in arrivalAirports:
                             vrijeZitplaatsen = alleVluchtenList[j]['journeySummary']['availableSeats']
                             vluchtNummer = alleVluchtenList[j]['flightsectors'][0]['flightNumber']
                             aantalStops = len(alleVluchtenList[j]['flightsectors']) - 1
+                            vertrekLuchthavenCode = alleVluchtenList[j]['journeySummary']['departAirportCode']
+                            aankomstLuchthavenCode = alleVluchtenList[j]['journeySummary']['arrivalAirportCode']
 
                             alleVertrekLuchthaven.append(vertrekLuchthaven)
 
-                            with open('csv/tui.csv', mode='a', newline="") as csvFile:
+                            with open(filename, mode='a', newline="") as csvFile:
                                 writer = csv.writer(csvFile)
-                                writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops])
+                                writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops, vertrekLuchthavenCode, aankomstLuchthavenCode])
                         j += 1
                     # print(f'alle vertrek luchthavens met datum: ' + datumInWeek + ' list:', set(alleVertrekLuchthaven))
                     overblijfendeLuchthavens = departureAirports.symmetric_difference(set(alleVertrekLuchthaven))
@@ -101,9 +106,12 @@ for arriAirport in arrivalAirports:
                             vrijeZitplaatsen = "geen"
                             vluchtNummer = "geen"
                             aantalStops = "geen"
-                            with open('csv/tui.csv', mode='a', newline="") as csvFile:
+                            vertrekLuchthavenCode = "geen"
+                            aankomstLuchthavenCode = "geen"
+
+                            with open(filename, mode='a', newline="") as csvFile:
                                 writer = csv.writer(csvFile)
-                                writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops])
+                                writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops, vertrekLuchthavenCode, aankomstLuchthavenCode])
                 else:
 
                     alleVertrekLuchthaven2 = []
@@ -118,12 +126,14 @@ for arriAirport in arrivalAirports:
                     vrijeZitplaatsen = "geen"
                     vluchtNummer = "geen"
                     aantalStops = "geen"
+                    vertrekLuchthavenCode = "geen"
+                    aankomstLuchthavenCode = "geen"
 
                     alleVertrekLuchthaven2.append(vertrekLuchthaven)
 
-                    with open('csv/tui.csv', mode='a', newline="") as csvFile:
+                    with open(filename, mode='a', newline="") as csvFile:
                         writer = csv.writer(csvFile)
-                        writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops])
+                        writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops, vertrekLuchthavenCode, aankomstLuchthavenCode])
 
                     overblijfendeLuchthavens = departureAirports.symmetric_difference(set(alleVertrekLuchthaven2))
                     if len(overblijfendeLuchthavens) != 0:
@@ -138,9 +148,12 @@ for arriAirport in arrivalAirports:
                             vrijeZitplaatsen = "geen"
                             vluchtNummer = "geen"
                             aantalStops = "geen"
-                            with open('csv/tui.csv', mode='a', newline="") as csvFile:
+                            vertrekLuchthavenCode = "geen"
+                            aankomstLuchthavenCode = "geen"
+
+                            with open(filename, mode='a', newline="") as csvFile:
                                 writer = csv.writer(csvFile)
-                                writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops])
+                                writer.writerow([datumVanVertrek, vertrekLuchthaven, aankomstLuchthaven, vertrekTijd, aankomstTijd, prijs, duur, vrijeZitplaatsen, vluchtNummer, aantalStops, vertrekLuchthavenCode, aankomstLuchthavenCode])
                 i += 1
             i = 0
             driver.close()
