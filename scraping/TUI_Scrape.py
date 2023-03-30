@@ -62,7 +62,6 @@ for arriAirport in arrivalAirports:
 
             alleVluchtenList = json_object['flightViewData'] # alle vluchten die beschikbaar zijn in een bepaalde week
             weekMetOutboundDataList = json_object['dateAvailabilityData']['outboundAvailabilityData'] # elke dag van de week met data in of dat een vlucht beschikbaar is of niet
-            # luchthavenIATA = json_object['flightSearchCriteria']
 
             while i < len(weekMetOutboundDataList):
                 datumInWeek = weekMetOutboundDataList[i]['displayDate']
