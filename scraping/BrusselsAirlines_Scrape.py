@@ -11,9 +11,9 @@ import csv
 import pandas as pd
 
 # Get the dates from april first 2023 to october first 2023
-start_date = datetime.date(2023, 9, 30)
-end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 4, 14)
+start_date = datetime.date(2023, 7, 28)
+end_date = datetime.date(2023, 8, 1)
+# end_date = datetime.date(2023, 4, 14)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -29,7 +29,7 @@ destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", 
 
 # Set the header for csv file
 header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price"]
-filename = "csv/BrusselsAirlines.csv"
+filename = "csv/BrusselsAirlinesJuli34.csv"
 
 # driver.get("https://www.brusselsairlines.com/lhg/be/nl/o-d/cy-cy/brussel-malaga")
 
@@ -38,6 +38,9 @@ user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 # Set the desired capabalities for Chrome
 desired_capabilities = DesiredCapabilities.CHROME.copy()
 desired_capabilities['chrome.switches'] = ['--disable-gpu']
+
+driver_location = '/usr/bin/chromedriver'
+binary_location = '/usr/bin/google-chrome'
 
 # Set the options for Chrome
 chrome_options = webdriver.ChromeOptions()
@@ -49,16 +52,13 @@ chrome_options.add_argument("--log-level=3")
 chrome_options.add_argument("--enable-stealth-mode")
 
 # OPTIONS FOR THE VM
-# driver_location = '/usr/bin/chromedriver'
-# binary_location = '/usr/bin/google-chrome'
-# chrome_options.add_argument("--headless")
-# chrome_options.binary_location = binary_location
+chrome_options.add_argument("--headless")
+chrome_options.binary_location = binary_location
 
 # Set the driver
 # FOR THE VM
-# driver = webdriver.Chrome(executable_path=driver_location,desired_capabilities=desired_capabilities, options=chrome_options)
-
-driver = webdriver.Chrome(desired_capabilities=desired_capabilities, options=chrome_options)
+driver = webdriver.Chrome(executable_path=driver_location,desired_capabilities=desired_capabilities, options=chrome_options)
+#driver = webdriver.Chrome(desired_capabilities=desired_capabilities, options=chrome_options)
 driver.maximize_window()
 
 # Instantiate stealth
