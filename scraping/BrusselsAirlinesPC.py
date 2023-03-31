@@ -12,15 +12,10 @@ import pandas as pd
 
 # Get the dates from april first 2023 to october first 2023
 
-# CODE FOR THE VM
-# <<<<<<< HEAD
-# start_date = datetime.date(2023, 9, 21)
-# =======
-# start_date = datetime.date(2023, 5, 26)
-# >>>>>>> 3322506510138c56b557afb93df68a8601759adc
-start_date = datetime.date(2023, 6, 17)
+# CODE FOR PC
+start_date = datetime.date(2023, 7, 1)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 6, 18)
+end_date = datetime.date(2023, 7, 2)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -31,8 +26,11 @@ while start_date < end_date:
 
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
-destinations = ["napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
+# destinations = ["napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
 # destinations = ["faro"]
+
+# Set the departure
+departure = "brussel"
 
 # Set the header for csv file
 header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price"]
@@ -55,16 +53,7 @@ chrome_options.add_experimental_option('useAutomationExtension', False)
 chrome_options.add_argument("--log-level=3")
 chrome_options.add_argument("--enable-stealth-mode")
 
-# OPTIONS FOR THE VM
-# driver_location = '/usr/bin/chromedriver'
-# binary_location = '/usr/bin/google-chrome'
-# chrome_options.add_argument("--headless")
-# chrome_options.binary_location = binary_location
-
 # Set the driver
-# FOR THE VM
-# driver = webdriver.Chrome(executable_path=driver_location,desired_capabilities=desired_capabilities, options=chrome_options)
-
 driver = webdriver.Chrome(desired_capabilities=desired_capabilities, options=chrome_options)
 driver.maximize_window()
 
@@ -87,6 +76,8 @@ stealth(
 # Loop through the dates and destinations
 for date in dates:
     for destination in destinations:
+        departure = "brussel"
+        
         if destination == "corfu":
             with open(filename, mode="a", newline="") as csvfile:
                 writer = csv.writer(csvfile)

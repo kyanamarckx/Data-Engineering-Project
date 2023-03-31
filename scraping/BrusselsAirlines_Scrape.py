@@ -24,8 +24,11 @@ while start_date < end_date:
 
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
-# destinations = ["palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife"]
-# destinations = ["faro"]
+# destinations = ["alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
+# destinations = ["corfu"]
+
+# Set the departure airport
+departure = "brussel"
 
 # Set the header for csv file
 header = ["Departure", "Destination", "Date", "Departure time", "Arrival time", "Stops", "Flightnumber", "Airports", "Duration", "Price"]
@@ -80,6 +83,8 @@ stealth(
 # Loop through the dates and destinations
 for date in dates:
     for destination in destinations:
+        departure = "brussel"
+
         if destination == "corfu":
             with open(filename, mode="a", newline="") as csvfile:
                 writer = csv.writer(csvfile)
