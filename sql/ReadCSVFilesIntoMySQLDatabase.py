@@ -44,9 +44,9 @@ with conn:
         # for each date and for each airline check if the file exists and copy the file to C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/
         for airline in ('Tui'): # , 'Ryanair', 'Transavia', 'BA'
             # old_path = "C:/Users/svre257/OneDrive - Hogeschool Gent/Documenten/Lesgeven Voorjaar 2023/Data Engineering Project I/Scrape/" + airline + "_" + date_format + ".csv"
-            old_path_test = "C:/Users/levim/OneDrive/Documents/1 HOGENT - Toegepaste Informatica Bahelor/2 HoGent - Data Engeneering Project/project/Data-Engineering-Project/csv1/" + airline + "_" + date_format + ".csv"
+            old_path_test = "/home/vicuser/Data-Engineering-Project/csvdrive/" + airline + "_" + date_format + ".csv"
             # new_path = "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/" + airline + ".csv"
-            new_path_test = "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/" + airline + ".csv"
+            new_path_test = "/var/lib/mysql-files/" + airline + ".csv"
             # Remove file if it already exists
             if os.path.exists(new_path_test):
                 os.remove(new_path_test)
@@ -72,7 +72,7 @@ with conn:
         #     cursor.execute(f.read(), multi=True)
         print("trying to open the file")
 
-        with open('C:/Users/levim/OneDrive/Documents/1 HOGENT - Toegepaste Informatica Bahelor/2 HoGent - Data Engeneering Project/project/Data-Engineering-Project/sql/LoadFilesTest.sql', 'r') as f:
+        with open('/home/vicuser/Data-Engineering-Project/sql/LoadFilesTest.sql', 'r') as f:
             sql = f.read()
             sql_commands = sql.split(';')
             for command in sql_commands:
