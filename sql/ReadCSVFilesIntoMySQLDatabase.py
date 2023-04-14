@@ -3,14 +3,14 @@ from datetime import date, timedelta
 import shutil
 import pymysql
 import os
-from sshtunnel import SSHTunnelForwarder
+# from sshtunnel import SSHTunnelForwarder
 
-print(pymysql.__version__)
+# print(pymysql.__version__)
 
-# SSH settings
-ssh_host = 'vichogent.be'
-ssh_user = 'vicuser'
-ssh_port = 40067
+# # SSH settings
+# ssh_host = 'vichogent.be'
+# ssh_user = 'vicuser'
+# ssh_port = 40067
 
 # MySQL settings
 db_user = 'user'
@@ -19,16 +19,16 @@ db_name = 'groep8dep'
 db_host = '127.0.0.1'
 db_port = 3306
 
-server = SSHTunnelForwarder(
-    (ssh_host, 40067),
-    ssh_username="vicuser",
-    ssh_pkey="C:/Users/levim/.ssh/id_rsa",
-    remote_bind_address=('127.0.0.1', 3306)
-)
-print("voor de start")
-server.start()
-print("na de start")
-conn = pymysql.connect(user=db_user, passwd=db_password, host='127.0.0.1', db=db_name, port=server.local_bind_port)
+# server = SSHTunnelForwarder(
+#     (ssh_host, 40067),
+#     ssh_username="vicuser",
+#     ssh_pkey="C:/Users/levim/.ssh/id_rsa",
+#     remote_bind_address=('127.0.0.1', 3306)
+# )
+# print("voor de start")
+# server.start()
+# print("na de start")
+conn = pymysql.connect(user=db_user, passwd=db_password, host='127.0.0.1', db=db_name, port=3306)
 
 with conn:
     print("database is connected")
@@ -78,4 +78,4 @@ with conn:
             for command in sql_commands:
                 if command.strip():
                     cursor.execute(command)
-server.stop()
+# server.stop()

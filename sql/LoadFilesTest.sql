@@ -2,7 +2,7 @@ CREATE TEMPORARY TABLE temp_tbl
 SELECT *
 FROM flight
 WHERE flight_id = 'A';
-LOAD DATA INFILE 'C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\Tui.csv' INTO TABLE temp_tbl FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (
+LOAD DATA INFILE '/var/lib/mysql-files/Tui.csv' INTO TABLE temp_tbl FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (
     @flight_id,
     @flightnumber,
     @departure_date,
@@ -43,7 +43,7 @@ CREATE TEMPORARY TABLE temp_tbl_2 (
     `available_seats` int DEFAULT NULL,
     `price` double DEFAULT NULL
 );
-LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Tui.csv' INTO TABLE temp_tbl_2 FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (
+LOAD DATA INFILE '/var/lib/mysql-files/Tui.csv' INTO TABLE temp_tbl_2 FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' (
     @flight_id,
     @flightnumber,
     @departure_date,
