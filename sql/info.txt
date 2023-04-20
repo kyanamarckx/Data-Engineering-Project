@@ -1,0 +1,7 @@
+Begin met een nieuwe connectie te maken in mysql workbench als localhost met user root en het wachtwoord zou je moeten weten.
+Daarna "OLTP-Database-script.sql" uit voeren zodat de database lokaal op u pc staat.
+
+als je de tabellen kan zien en de naam van de database in het vet staat kan je "LoadAllFiles.sql" uit voeren.
+!!!!! Hiervoor moet je wel zorgen dat de file All_YYYY_MM_DD correct is veranderd en in de map C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/ staat.
+
+bij verdere problemen stuur dm
