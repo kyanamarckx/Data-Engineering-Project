@@ -11,11 +11,9 @@ import csv
 import pandas as pd
 
 # Get the dates from april first 2023 to october first 2023
-
-# CODE FOR PC
-start_date = datetime.date(2023, 7, 1)
+start_date = datetime.date(2023, 9, 29)
 end_date = datetime.date(2023, 10, 1)
-end_date = datetime.date(2023, 7, 2)
+end_date = datetime.date(2023, 9, 30)
 delta = datetime.timedelta(days=1)
 
 dates = []
@@ -23,10 +21,9 @@ while start_date < end_date:
     dates.append(start_date.strftime('%d/%m/%Y'))
     start_date += delta
 
-
 # Get the available destinations from Brussels
 destinations = ["heraklion", "rhodes", "brindisi", "napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
-# destinations = ["napels", "palermo", "faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
+destinations = ["faro", "alicante", "ibiza", "malaga", "palma-de-mallorca", "tenerife", "corfu"]
 # destinations = ["faro"]
 
 # Set the departure
