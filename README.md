@@ -26,3 +26,8 @@
 ERD: 
 
 ![ERD](./images/Schermafbeelding%202023-04-24%20161255.png)
+
+
+Sterschema:
+
+![Sterschema](./images/Schermafbeelding%202023-04-24%20203049.png)
