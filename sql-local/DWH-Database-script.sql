@@ -3,13 +3,16 @@ CREATE DATABASE IF NOT EXISTS AirFaresDWH;
 CREATE TABLE IF NOT EXISTS DimAirport (
     airport_key INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     airport_iata_code VARCHAR(5) NOT NULL,
-    airport_name VARCHAR(25) NOT NULL
+    airport_name VARCHAR(50) NOT NULL,
+    location VARCHAR(50) NOT NULL,
+    country VARCHAR(25) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS DimAirline (
     airline_key INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     airline_iata_code VARCHAR(5) NOT NULL,
-    airline_name VARCHAR(25) NOT NULL
+    airline_name VARCHAR(50) NOT NULL,
+    country VARCHAR(25) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS DimFlight (
@@ -35,7 +38,8 @@ CREATE TABLE IF NOT EXISTS DimDate (
     nameOfQuarter VARCHAR(10) NOT NULL,
     numberOfQuarter INT NOT NULL,
     isWeekend BIT NOT NULL,
-    isWeekDay BIT NOT NULL
+    isWeekDay BIT NOT NULL,
+    isHoliday BIT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS FactFlightfare (
