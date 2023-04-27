@@ -12,7 +12,8 @@ INSERT INTO DimDate(
         nameOfQuarter,
         numberOfQuarter,
         isWeekend,
-        isWeekDay
+        isWeekDay,
+        isHoliday
     )
 VALUES (
         currentdate,
@@ -35,6 +36,14 @@ VALUES (
             WHEN 1 THEN 0 -- Sunday
             WHEN 7 THEN 0 -- Saturday
             ELSE 1
+        END,
+        CASE
+            WHEN currentdate BETWEEN '2023-04-04' AND '2023-04-16' THEN 1
+            WHEN currentdate LIKE '2023-05-01' THEN 1
+            WHEN currentdate BETWEEN '2023-05-18' AND '2023-05-19' THEN 1
+            WHEN currentdate LIKE '2023-05-29' THEN 1
+            WHEN currentdate BETWEEN '2023-07-01' AND '2023-08-31' THEN 1
+            ELSE 0
         END
     );
 SET currentdate = DATE_ADD(currentdate, INTERVAL 1 DAY);

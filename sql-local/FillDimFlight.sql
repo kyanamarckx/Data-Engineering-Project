@@ -1,51 +1,45 @@
-CREATE DEFINER = `root` @`localhost` PROCEDURE `FillDimDate`() BEGIN
-DECLARE currentdate DATE DEFAULT DATE_FORMAT('2023-04-04', '%Y-%m-%d');
-WHILE currentdate <= DATE_FORMAT('2023-10-01', '%Y-%m-%d') DO
-INSERT INTO DimDate(
-        date,
-        day_of_week,
-        day_of_month,
-        day_of_year,
-        year,
-        dayName,
-        monthName,
-        nameOfQuarter,
-        numberOfQuarter,
-        isWeekend,
-        isWeekDay,
-        isHoliday
+CREATE DEFINER = `root` @`localhost` PROCEDURE `FillDimFlight`(IN start_date DATE, IN end_date DATE) BEGIN
+SET SQL_SAFE_UPDATES = 0;
+DROP TEMPORARY TABLE IF EXISTS tempFlightData;
+-- Step 1: Extract data from the OLTP database
+CREATE TEMPORARY TABLE tempFlightData AS
+SELECT f.flight_id,
+    start_date,
+    end_date,
+    f.flightnumber,
+    f.number_of_stops,
+    f.departure_time,
+    f.arrival_time,
+    f.duration
+FROM groep8dep.flight f;
+-- add any necessary joins or filters here
+-- Step 2: Transform the data as needed
+UPDATE tempFlightData
+SET start_date = DATE(start_date),
+    end_date = DATE(end_date),
+    duration = CAST(duration AS TIME),
+    departure_time = CAST(departure_time AS TIME),
+    arrival_time = CAST(arrival_time AS TIME);
+-- Step 3: Load the data into the DimFlight table
+INSERT INTO DimFlight (
+        flight_id,
+        start_date,
+        end_date,
+        flightnumber,
+        numberOfStops,
+        departureTime,
+        arrivalTime,
+        duration
     )
-VALUES (
-        currentdate,
-        DAYOFWEEK(currentdate),
-        DAY(currentdate),
-        DAYOFYEAR(currentdate),
-        YEAR(currentdate),
-        DATE_FORMAT(currentdate, '%W'),
-        DATE_FORMAT(currentdate, '%M'),
-        CONCAT('Q', QUARTER(currentdate)),
-        QUARTER(currentdate),
-        CASE
-            DAYOFWEEK(currentdate)
-            WHEN 1 THEN 1 -- Sunday
-            WHEN 7 THEN 1 -- Saturday
-            ELSE 0
-        END,
-        CASE
-            DAYOFWEEK(currentdate)
-            WHEN 1 THEN 0 -- Sunday
-            WHEN 7 THEN 0 -- Saturday
-            ELSE 1
-        END,
-        CASE
-            WHEN currentdate BETWEEN '2023-04-04' AND '2023-04-16' THEN 1
-            WHEN currentdate LIKE '2023-05-01' THEN 1
-            WHEN currentdate BETWEEN '2023-05-18' AND '2023-05-19' THEN 1
-            WHEN currentdate LIKE '2023-05-29' THEN 1
-            WHEN currentdate BETWEEN '2023-07-01' AND '2023-08-31' THEN 1
-            ELSE 0
-        END
-    );
-SET currentdate = DATE_ADD(currentdate, INTERVAL 1 DAY);
-END WHILE;
+SELECT flight_id,
+    start_date,
+    end_date,
+    flightnumber,
+    number_of_stops,
+    departure_time,
+    arrival_time,
+    duration
+FROM tempFlightData;
+-- Clean up temporary table
+DROP TEMPORARY TABLE IF EXISTS tempFlightData;
 END
