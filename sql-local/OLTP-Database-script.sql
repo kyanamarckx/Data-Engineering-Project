@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS groep8dep;
 
+USE groep8dep;
+
 CREATE TABLE IF NOT EXISTS flightfare (
     flightfare_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     flight_id VARCHAR(50) DEFAULT NULL,

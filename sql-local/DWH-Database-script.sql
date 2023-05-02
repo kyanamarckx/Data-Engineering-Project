@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS AirFaresDWH;
 
+use airfaresdwh;
+
 CREATE TABLE IF NOT EXISTS DimAirport (
     airport_key INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     airport_iata_code VARCHAR(5) NOT NULL,
@@ -18,16 +20,17 @@ CREATE TABLE IF NOT EXISTS DimAirline (
 CREATE TABLE IF NOT EXISTS DimFlight (
     flight_key INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     flight_id VARCHAR(50) NOT NULL,
-    start_date DATE NOT NULL,
-    end_date DATE NOT NULL,
     flightnumber VARCHAR(10) NOT NULL,
     numberOfStops INT NOT NULL,
     departureTime TIME NOT NULL,
     arrivalTime TIME NOT NULL,
-    duration TIME NOT NULL
+    duration TIME NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE
 );
+
 CREATE TABLE IF NOT EXISTS DimDate (
-    date_key INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    date_key INT NOT NULL PRIMARY KEY,
     date DATE NOT NULL,
     day_of_week INT NOT NULL,
     day_of_month INT NOT NULL,

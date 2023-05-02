@@ -1,7 +1,8 @@
 CREATE DEFINER = `root` @`localhost` PROCEDURE `FillDimDate`() BEGIN
-DECLARE currentdate DATE DEFAULT DATE_FORMAT('2023-04-04', '%Y-%m-%d');
-WHILE currentdate <= DATE_FORMAT('2023-10-01', '%Y-%m-%d') DO
+DECLARE currentdate DATE DEFAULT DATE_FORMAT('2023-01-01', '%Y-%m-%d');
+WHILE currentdate <= DATE_FORMAT('2024-10-01', '%Y-%m-%d') DO
 INSERT INTO DimDate(
+        date_key,
         date,
         day_of_week,
         day_of_month,
@@ -16,6 +17,11 @@ INSERT INTO DimDate(
         isHoliday
     )
 VALUES (
+        CONCAT(
+            date_format(currentdate, '%Y'),
+            date_format(currentdate, '%m'),
+            date_format(currentdate, '%d')
+        ),
         currentdate,
         DAYOFWEEK(currentdate),
         DAY(currentdate),

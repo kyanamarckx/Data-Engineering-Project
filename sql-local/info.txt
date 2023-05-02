@@ -1,15 +1,43 @@
-Begin met een nieuwe connectie te maken in mysql workbench als localhost met user root en het wachtwoord zou je moeten weten.
-Daarna "OLTP-Database-script.sql" uit voeren zodat de database lokaal op u pc staat.
+STAPPENPLAN DATABASE OPZETTEN
 
-als je de tabellen kan zien en de naam van de database in het vet staat kan je "LoadAllFiles.sql" uit voeren.
-!!!!! Hiervoor moet je wel zorgen dat de file All_YYYY_MM_DD correct is veranderd en in de map C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/ staat.
+1. connectie met de database via mysql workbench
+    - connectie toevoegen bij workbench.
+    - alles gebeurd lokaal dus ip adres is gewoon localhost.
+    - login met het juiste wachtwoord.
 
-bij verdere problemen stuur dm
+2. groep8dep OLTP database opzetten 
+    - open het bestand "OLTP-Database-script.sql".
+    - voer het bestand uit.
+    - refresh "schemas".
+    - dan zou die database er moeten tussen staan en in het vet staan.
 
-Voor de data warehouse procedures te kunnen maken moet je eerst "DWH-Database-script.sql" uitvoeren, als dat gedaan is moet je zeker zijn
-dat je die database aan het gebruiken staat (kan je zien als de naam van de database int vet staat)
+3. csv data in onze OLTP database zetten
+    - open het bestand "LoadAllFiles.sql".
+    - zorg ervoor dat er een file in "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/" zit. Example -> (All_2023_04_20.csv)
+    - verander in "LoadAllFiles.sql" het pad aan zodat het de juiste file zal lezen. Example -> "C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/All_2023_04_20.csv"
+    - voer het bestand uit.
+    - voor te controleren of de data erin zit kan je de file "checkTables.sql" raadplegen en de juiste select statements uitvoeren. (selecteer juiste blokje code en voer het uit)
 
-als dat zo is kan je ergens bij die database "Store Procedures" vinden, dan kan je rechter muisklik op doen om 1 aan te maken en dan kopieer
-je eerst de code van "FillDimDate" en vul je die daar in en dan doe je hetzelfde voor "FillDimFlight".
+4. data warehouse database opzetten
+    - open het bestand "DWH-Database-scirpt.sql".
+    - voer het bestand uit.
+    - refresh "schemas".
+    - dan zou die database er moeten tussen staan en in het vet staan.
 
-Bij problemen mag je opniew mij een dm sturen op discord.
+5. stored procedures maken voor dwh
+    - open het mapje "stored procedures".
+    - rechts klik op "stored procedures" in mysql workbench en klik dan "create stored procedure".
+    - plak telkens de code die je in het mapje kan vinden erin.
+    - apply -> finish
+    - uiteindelijk zal je 4 stored procedures moeten hebben. (kan je ook zien als "schemas" opnieuw refreshed)
+
+6. data van OLTP naar DWH zetten
+    - open het bestand DWH-script.sql
+    - kijk eerst of je de juiste database hebt geselecteerd. (airfaresdwh)
+    - voer dan eerst lijn 10 uit of call FillDimDate();
+    - voer dan het INSERT statement van DimAirline uit.
+    - voer dan het INSERT statement van DimAirport uit.
+    - dan voer je call FillDimFlight(); uit. (DIT MAG MAAR 1 KEER GEBEUREN MET NIEUWE DATA)
+    - dan voer je UpdateDimFlight(); uit.
+    - dan als laatste voer je call FillFactflightfare(); uit.
+    - dan kan je weer via "checkTables.sql" controleren of alle tabellen van de DWH data hebben.
