@@ -5,7 +5,7 @@ import os
 # this function will only copy the 'All' csv files
 # it also checks if the file already exists in the destination folder. If it does, it will skip the file
 def copyFiles():
-    source_folder = 'C:\\Users\\kyana\\OneDrive - Hogeschool Gent\\Documenten\\GitHub\\Data-Engineering-Project\\airfares\\AirFares'
+    source_folder = 'C:\\Users\\kyana\\OneDrive - Hogeschool Gent\\AirFares'
     destination_folder = 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads'
 
     for file in os.listdir(source_folder):
