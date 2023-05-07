@@ -1,0 +1,22 @@
+flightnumber,arrivalAirportKey,departureDateKey,departureTime,arrivalTime,available_seats
+FR1302,Napels,20230425,0 days 19:20:00,0 days 21:35:00,86
+FR563,Tenerife,20230425,0 days 07:15:00,0 days 10:50:00,64
+FR6456,Ibiza,20230425,0 days 09:25:00,0 days 11:50:00,21
+FR7986,Kreta,20230425,0 days 07:20:00,0 days 11:45:00,112
+HV9003,Alicante,20230425,0 days 17:25:00,0 days 19:55:00,114
+FR6269,Palermo,20230425,0 days 15:35:00,0 days 18:05:00,29
+FR9053,Alicante,20230425,0 days 12:15:00,0 days 14:40:00,36
+FR6312,Faro,20230425,0 days 16:45:00,0 days 18:40:00,13
+FR7737,Brindisi,20230425,0 days 17:20:00,0 days 19:45:00,58
+FR7831,Palma,20230425,0 days 06:35:00,0 days 08:45:00,27
+TB1101,Alicante,20230425,0 days 07:30:00,0 days 10:10:00,15
+TB1413,Palma,20230425,0 days 15:30:00,0 days 18:05:00,-1
+TB2367,Rhodos,20230425,0 days 06:00:00,0 days 11:00:00,120
+TB1135,Alicante,20230425,0 days 06:15:00,0 days 09:00:00,42
+FR2941,Faro,20230425,0 days 13:45:00,0 days 15:40:00,50
+TB1171,Alicante,20230425,0 days 06:00:00,0 days 08:50:00,20
+FR3534,Alicante,20230425,0 days 06:30:00,0 days 08:55:00,3
+FR1916,Malaga,20230425,0 days 16:00:00,0 days 18:45:00,70
+TB1011,Malaga,20230425,0 days 06:15:00,0 days 09:20:00,-1
+TB1003,Malaga,20230425,0 days 14:15:00,0 days 17:20:00,18
+TB1753,Tenerife,20230425,0 days 06:05:00,0 days 10:05:00,-1
