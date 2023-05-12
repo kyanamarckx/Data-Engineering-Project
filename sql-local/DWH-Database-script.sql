@@ -56,6 +56,7 @@ CREATE TABLE IF NOT EXISTS FactFlightfare (
     arrivalDateKey INT NOT NULL,
     availableSeats INT NOT NULL,
     price DOUBLE NOT NULL,
+	FOREIGN KEY (flight_key) REFERENCES DimFlight(flight_key),
     FOREIGN KEY (airline_key) REFERENCES DimAirline(airline_key),
     FOREIGN KEY (depatureAirportKey) REFERENCES DimAirport(airport_key),
     FOREIGN KEY (arrivalAirportKey) REFERENCES DimAirport(airport_key),
