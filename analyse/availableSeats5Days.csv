@@ -1,13 +1,13 @@
-flightnumber,arrivalAirportKey,scrapeDateKey,departureDateKey,departureTime,arrivalTime,available_seats_fiveDays
-FR1302,Napels,20230420,20230425,0 days 19:20:00,0 days 21:35:00,2
-FR563,Tenerife,20230420,20230425,0 days 07:15:00,0 days 10:50:00,2
-FR7986,Kreta,20230420,20230425,0 days 07:20:00,0 days 11:45:00,3
-HV9003,Alicante,20230420,20230425,0 days 17:25:00,0 days 19:55:00,4
-FR9053,Alicante,20230420,20230425,0 days 12:15:00,0 days 14:40:00,3
-FR7737,Brindisi,20230420,20230425,0 days 17:20:00,0 days 19:45:00,1
-TB2367,Rhodos,20230420,20230425,0 days 06:00:00,0 days 11:00:00,1
-FR2941,Faro,20230420,20230425,0 days 13:45:00,0 days 15:40:00,2
-TB1171,Alicante,20230420,20230425,0 days 06:00:00,0 days 08:50:00,7
-FR1916,Malaga,20230420,20230425,0 days 16:00:00,0 days 18:45:00,3
-TB1003,Malaga,20230420,20230425,0 days 14:15:00,0 days 17:20:00,2
-TB1753,Tenerife,20230420,20230425,0 days 06:05:00,0 days 10:05:00,-1
+flightnumber,airline_name,arrivalAirportKey,scrapeDateKey,departureDateKey,departureTime,arrivalTime,available_seats_fiveDays
+FR9053,Ryanair,Alicante,20230420,20230425,0 days 12:15:00,0 days 14:40:00,3
+TB2367,Tui,Rhodos,20230420,20230425,0 days 06:00:00,0 days 11:00:00,1
+TB1003,Tui,Malaga,20230420,20230425,0 days 14:15:00,0 days 17:20:00,2
+TB1171,Tui,Alicante,20230420,20230425,0 days 06:00:00,0 days 08:50:00,7
+HV9003,Transavia,Alicante,20230420,20230425,0 days 17:25:00,0 days 19:55:00,4
+FR1916,Ryanair,Malaga,20230420,20230425,0 days 16:00:00,0 days 18:45:00,3
+FR2941,Ryanair,Faro,20230420,20230425,0 days 13:45:00,0 days 15:40:00,2
+FR563,Ryanair,Tenerife,20230420,20230425,0 days 07:15:00,0 days 10:50:00,2
+FR7986,Ryanair,Kreta,20230420,20230425,0 days 07:20:00,0 days 11:45:00,3
+FR1302,Ryanair,Napels,20230420,20230425,0 days 19:20:00,0 days 21:35:00,2
+TB1753,Tui,Tenerife,20230420,20230425,0 days 06:05:00,0 days 10:05:00,-1
+FR7737,Ryanair,Brindisi,20230420,20230425,0 days 17:20:00,0 days 19:45:00,1
