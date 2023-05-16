@@ -12,10 +12,11 @@ with open(os.path.join(directory, newName), 'w') as combined_file:
                 combined_file.write(csv_file.read())
                 combined_file.write('\n')
 
-# open hte new file and delete empty lines if there are any
+# open the new file and delete empty lines if there are any, drop duplicates too
 with open(newName, 'r') as file:
     lines = file.readlines()
     lines = filter(lambda x: x.strip(), lines)
+    lines = list(dict.fromkeys(lines))
     
 with open(newName, 'w') as file:
     file.writelines(lines)
